@@ -1,3 +1,42 @@
-[gd_scene format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=2 format=3 uid="uid://c2a05t2qtni6g"]
+
+[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="1_vn2es"]
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="ExtLetterSprite" type="ExtLetterSprite" parent="."]
+letter = "H"
+position = Vector2(-48, 0)
+texture = ExtResource("1_vn2es")
+hframes = 26
+frame = 7
+
+[node name="ExtLetterSprite2" type="ExtLetterSprite" parent="."]
+letter = "E"
+position = Vector2(-24, 0)
+texture = ExtResource("1_vn2es")
+hframes = 26
+frame = 4
+
+[node name="ExtLetterSprite3" type="ExtLetterSprite" parent="."]
+letter = "L"
+texture = ExtResource("1_vn2es")
+hframes = 26
+frame = 11
+
+[node name="ExtLetterSprite4" type="ExtLetterSprite" parent="."]
+letter = "L"
+position = Vector2(24, 0)
+texture = ExtResource("1_vn2es")
+hframes = 26
+frame = 11
+
+[node name="ExtLetterSprite5" type="ExtLetterSprite" parent="."]
+letter = "O"
+position = Vector2(48, 0)
+texture = ExtResource("1_vn2es")
+hframes = 26
+frame = 14
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)

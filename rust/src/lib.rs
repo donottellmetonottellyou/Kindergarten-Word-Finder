@@ -1,3 +1,5 @@
+mod letters;
+
 use godot::prelude::*;
 
 struct KindergardenWordFinderExtensionLibrary;
