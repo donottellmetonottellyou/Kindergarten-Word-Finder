@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/ui.tres" id="1_of4d3"]
-[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="1_vn2es"]
+[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
 [ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
@@ -31,7 +31,7 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 letter = "W"
 jiggle = true
 position = Vector2(84, 24)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 22
 
@@ -39,7 +39,7 @@ frame = 22
 letter = "O"
 jiggle = true
 position = Vector2(108, 24)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 14
 
@@ -47,7 +47,7 @@ frame = 14
 letter = "R"
 jiggle = true
 position = Vector2(132, 24)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 17
 
@@ -55,7 +55,7 @@ frame = 17
 letter = "D"
 jiggle = true
 position = Vector2(156, 24)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 3
 
@@ -63,7 +63,7 @@ frame = 3
 letter = "F"
 jiggle = true
 position = Vector2(60, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 5
 
@@ -71,7 +71,7 @@ frame = 5
 letter = "I"
 jiggle = true
 position = Vector2(84, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 8
 
@@ -79,7 +79,7 @@ frame = 8
 letter = "N"
 jiggle = true
 position = Vector2(108, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 13
 
@@ -87,7 +87,7 @@ frame = 13
 letter = "D"
 jiggle = true
 position = Vector2(132, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 3
 
@@ -95,7 +95,7 @@ frame = 3
 letter = "E"
 jiggle = true
 position = Vector2(156, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 4
 
@@ -103,7 +103,7 @@ frame = 4
 letter = "R"
 jiggle = true
 position = Vector2(180, 48)
-texture = ExtResource("1_vn2es")
+texture = ExtResource("2_4c2gh")
 hframes = 26
 frame = 17
 
