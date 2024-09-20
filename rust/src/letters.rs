@@ -7,7 +7,7 @@ use rand::prelude::*;
 
 use std::time::{Duration, Instant};
 
-#[derive(Default, Clone, Copy, GodotConvert, Var, Export)]
+#[derive(Debug, Default, Clone, Copy, GodotConvert, Var, Export)]
 #[repr(i32)]
 #[godot(via = GString)]
 enum Letter {
@@ -43,8 +43,13 @@ enum Letter {
 #[derive(GodotClass)]
 #[class(base=Sprite2D)]
 struct ExtLetterSprite {
+    #[var(get, set = set_letter)]
     #[export]
     letter: Letter,
+    #[var(get, set = set_jiggle)]
+    #[export]
+    jiggle: bool,
+
     next_jiggle_time: Instant,
 
     base: Base<Sprite2D>,
@@ -53,10 +58,13 @@ struct ExtLetterSprite {
 impl ISprite2D for ExtLetterSprite {
     fn init(base: Base<Self::Base>) -> Self {
         let letter = Letter::default();
-        let next_jiggle_time = Self::get_next_jiggle_time();
+        let jiggle = false;
+        let next_jiggle_time = Instant::now();
 
         Self {
             letter,
+            jiggle,
+
             next_jiggle_time,
 
             base,
@@ -64,31 +72,43 @@ impl ISprite2D for ExtLetterSprite {
     }
 
     fn ready(&mut self) {
-        self.base_mut()
-            .set_texture(load("res://assets/letters.png"));
-        self.base_mut().set_hframes(26);
-
-        let frame = self.letter as i32;
-        self.base_mut().set_frame(frame);
-
-        self.jiggle();
+        self.set_letter(self.letter);
+        self.set_jiggle(self.jiggle);
     }
 
     fn process(&mut self, _delta: f64) {
-        if self.next_jiggle_time < Instant::now() {
-            self.jiggle();
-
-            self.next_jiggle_time = Self::get_next_jiggle_time();
-        }
+        self.jiggle_if_time()
     }
 }
+#[godot_api]
 impl ExtLetterSprite {
-    fn jiggle(&mut self) {
+    #[func]
+    fn set_letter(&mut self, letter: Letter) {
         self.base_mut()
-            .set_rotation_degrees(thread_rng().gen_range(-15.0..=15.0));
+            .set_texture(load("res://assets/letters.png"));
+        self.base_mut().set_hframes(26);
+        self.base_mut().set_frame(letter as i32);
+        self.letter = letter;
     }
 
-    fn get_next_jiggle_time() -> Instant {
-        Instant::now() + Duration::from_millis(thread_rng().gen_range(500..=2000))
+    #[func]
+    fn set_jiggle(&mut self, jiggle: bool) {
+        if !jiggle {
+            self.base_mut().set_rotation(0.0);
+        }
+
+        self.next_jiggle_time = Instant::now();
+        self.jiggle = jiggle;
+    }
+
+    #[inline]
+    fn jiggle_if_time(&mut self) {
+        if !self.jiggle || self.next_jiggle_time > Instant::now() {
+            return;
+        }
+
+        self.base_mut()
+            .set_rotation_degrees(thread_rng().gen_range(-15.0..=15.0));
+        self.next_jiggle_time += Duration::from_millis(thread_rng().gen_range(500..=2000));
     }
 }
