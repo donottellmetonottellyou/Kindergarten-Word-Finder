@@ -110,6 +110,11 @@ impl ExtLetter {
         self.jiggle = jiggle;
     }
 
+    #[func]
+    fn connect_button_pressed(&mut self, callable: Callable) {
+        self.button.connect("pressed".into(), callable);
+    }
+
     #[inline]
     fn jiggle_if_time(&mut self) {
         if !self.jiggle || self.next_jiggle_time > Instant::now() {
