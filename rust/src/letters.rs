@@ -1,5 +1,5 @@
 use godot::{
-    engine::{ISprite2D, Sprite2D},
+    engine::{ISprite2D, Sprite2D, TextureButton},
     obj::WithBaseField,
     prelude::*,
 };
@@ -42,7 +42,7 @@ enum Letter {
 
 #[derive(GodotClass)]
 #[class(base=Sprite2D)]
-struct ExtLetterSprite {
+struct ExtLetter {
     #[var(get, set = set_letter)]
     #[export]
     letter: Letter,
@@ -52,14 +52,19 @@ struct ExtLetterSprite {
 
     next_jiggle_time: Instant,
 
+    button: Gd<TextureButton>,
     base: Base<Sprite2D>,
 }
 #[godot_api]
-impl ISprite2D for ExtLetterSprite {
+impl ISprite2D for ExtLetter {
     fn init(base: Base<Self::Base>) -> Self {
         let letter = Letter::default();
         let jiggle = false;
         let next_jiggle_time = Instant::now();
+
+        let mut button = TextureButton::new_alloc();
+        button.set_position(Vector2 { x: -8.0, y: -8.0 });
+        button.set_size(Vector2 { x: 16.0, y: 16.0 });
 
         Self {
             letter,
@@ -67,6 +72,7 @@ impl ISprite2D for ExtLetterSprite {
 
             next_jiggle_time,
 
+            button,
             base,
         }
     }
@@ -74,6 +80,9 @@ impl ISprite2D for ExtLetterSprite {
     fn ready(&mut self) {
         self.set_letter(self.letter);
         self.set_jiggle(self.jiggle);
+
+        let button = self.button.clone().upcast();
+        self.base_mut().add_child(button);
     }
 
     fn process(&mut self, _delta: f64) {
@@ -81,7 +90,7 @@ impl ISprite2D for ExtLetterSprite {
     }
 }
 #[godot_api]
-impl ExtLetterSprite {
+impl ExtLetter {
     #[func]
     fn set_letter(&mut self, letter: Letter) {
         self.base_mut()
