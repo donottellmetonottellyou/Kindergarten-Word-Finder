@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2a05t2qtni6g"]
 
-[ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/ui.tres" id="1_of4d3"]
+[ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
 [ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
 
