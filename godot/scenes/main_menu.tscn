@@ -110,8 +110,6 @@ frame = 17
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Easy" type="TextureButton" parent="Control"]
 layout_mode = 0
