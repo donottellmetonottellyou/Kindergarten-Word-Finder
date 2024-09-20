@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=7 format=3 uid="uid://c2a05t2qtni6g"]
 
-[ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://tile_sets/ui.tres" id="1_of4d3"]
+[ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/ui.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="1_vn2es"]
+[ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
+atlas = ExtResource("3_oiehp")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnomd"]
+atlas = ExtResource("3_oiehp")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eh30"]
+atlas = ExtResource("3_oiehp")
+region = Rect2(0, 16, 48, 16)
 
 [node name="MainMenu" type="Node2D"]
 
@@ -12,12 +25,12 @@ zoom = Vector2(4, 4)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_of4d3")
 format = 2
-layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 458752, 262144, 0, 393216, 262144, 0, 327680, 262144, 0, 262144, 262144, 0, 196608, 262144, 0, 131072, 262144, 0, 65536, 262144, 0, 0, 524288, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 327680, 0, 65550, 131072, 0, 131086, 131072, 0, 196622, 131072, 0, 262158, 131072, 0, 327694, 131072, 0, 393230, 131072, 0, 458766, 131072, 0, 524302, 131072, 0, 589838, 393216, 0, 589825, 196608, 0, 589826, 196608, 0, 589827, 196608, 0, 589828, 196608, 0, 589829, 196608, 0, 589830, 196608, 0, 589831, 196608, 0, 589832, 196608, 0, 589833, 196608, 0, 589834, 196608, 0, 589835, 196608, 0, 589836, 196608, 0, 589837, 196608, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 458765, 0, 0, 458764, 0, 0, 458763, 0, 0, 458762, 393216, 1, 458761, 327680, 1, 458760, 655360, 1, 458759, 65536, 0, 458758, 589824, 1, 458757, 393216, 1, 458756, 327680, 1, 458755, 0, 0, 458754, 0, 0, 458753, 0, 0, 393217, 0, 0, 393218, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 196608, 1, 327685, 262144, 1, 327686, 458752, 1, 327687, 196608, 0, 327688, 524288, 1, 327689, 196608, 1, 393225, 65536, 1, 393224, 262144, 0, 393223, 0, 1, 393222, 131072, 0, 393221, 131072, 1, 393220, 65536, 1, 393219, 0, 0, 393226, 131072, 1, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 262144, 1, 327681, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 196621, 0, 0, 196620, 0, 0, 196619, 0, 0, 196618, 0, 0, 196617, 0, 0, 196616, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0)
+layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 458752, 262144, 0, 393216, 262144, 0, 327680, 262144, 0, 262144, 262144, 0, 196608, 262144, 0, 131072, 262144, 0, 65536, 262144, 0, 0, 524288, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 327680, 0, 65550, 131072, 0, 131086, 131072, 0, 196622, 131072, 0, 262158, 131072, 0, 327694, 131072, 0, 393230, 131072, 0, 458766, 131072, 0, 524302, 131072, 0, 589838, 393216, 0, 589825, 196608, 0, 589826, 196608, 0, 589827, 196608, 0, 589828, 196608, 0, 589829, 196608, 0, 589830, 196608, 0, 589831, 196608, 0, 589832, 196608, 0, 589833, 196608, 0, 589834, 196608, 0, 589835, 196608, 0, 589836, 196608, 0, 589837, 196608, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 458765, 0, 0, 458764, 0, 0, 458763, 0, 0, 458762, 0, 0, 458761, 0, 0, 458760, 0, 0, 458759, 0, 0, 458758, 0, 0, 458757, 0, 0, 458756, 0, 0, 458755, 0, 0, 458754, 0, 0, 458753, 0, 0, 393217, 0, 0, 393218, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 393225, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327681, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 196621, 0, 0, 196620, 0, 0, 196619, 0, 0, 196618, 0, 0, 196617, 0, 0, 196616, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0)
 
 [node name="ExtLetter" type="ExtLetter" parent="TileMap"]
 letter = "W"
 jiggle = true
-position = Vector2(84, 32)
+position = Vector2(84, 24)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 22
@@ -25,7 +38,7 @@ frame = 22
 [node name="ExtLetter2" type="ExtLetter" parent="TileMap"]
 letter = "O"
 jiggle = true
-position = Vector2(108, 32)
+position = Vector2(108, 24)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 14
@@ -33,7 +46,7 @@ frame = 14
 [node name="ExtLetter3" type="ExtLetter" parent="TileMap"]
 letter = "R"
 jiggle = true
-position = Vector2(132, 32)
+position = Vector2(132, 24)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 17
@@ -41,7 +54,7 @@ frame = 17
 [node name="ExtLetter4" type="ExtLetter" parent="TileMap"]
 letter = "D"
 jiggle = true
-position = Vector2(156, 32)
+position = Vector2(156, 24)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 3
@@ -49,7 +62,7 @@ frame = 3
 [node name="ExtLetter5" type="ExtLetter" parent="TileMap"]
 letter = "F"
 jiggle = true
-position = Vector2(60, 56)
+position = Vector2(60, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 5
@@ -57,7 +70,7 @@ frame = 5
 [node name="ExtLetter6" type="ExtLetter" parent="TileMap"]
 letter = "I"
 jiggle = true
-position = Vector2(84, 56)
+position = Vector2(84, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 8
@@ -65,7 +78,7 @@ frame = 8
 [node name="ExtLetter7" type="ExtLetter" parent="TileMap"]
 letter = "N"
 jiggle = true
-position = Vector2(108, 56)
+position = Vector2(108, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 13
@@ -73,7 +86,7 @@ frame = 13
 [node name="ExtLetter8" type="ExtLetter" parent="TileMap"]
 letter = "D"
 jiggle = true
-position = Vector2(132, 56)
+position = Vector2(132, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 3
@@ -81,7 +94,7 @@ frame = 3
 [node name="ExtLetter9" type="ExtLetter" parent="TileMap"]
 letter = "E"
 jiggle = true
-position = Vector2(156, 56)
+position = Vector2(156, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 4
@@ -89,26 +102,28 @@ frame = 4
 [node name="ExtLetter10" type="ExtLetter" parent="TileMap"]
 letter = "R"
 jiggle = true
-position = Vector2(180, 56)
+position = Vector2(180, 48)
 texture = ExtResource("1_vn2es")
 hframes = 26
 frame = 17
 
-[node name="ExtLetter11" type="ExtLetter" parent="TileMap"]
-letter = "C"
-position = Vector2(80, 104)
-texture = ExtResource("1_vn2es")
-hframes = 26
-frame = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="ExtLetter12" type="ExtLetter" parent="TileMap"]
-position = Vector2(120, 104)
-texture = ExtResource("1_vn2es")
-hframes = 26
+[node name="Easy" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 144.0
+offset_bottom = 96.0
+texture_normal = SubResource("AtlasTexture_wiy0g")
+texture_pressed = SubResource("AtlasTexture_xnomd")
+texture_hover = SubResource("AtlasTexture_2eh30")
 
-[node name="ExtLetter13" type="ExtLetter" parent="TileMap"]
-letter = "T"
-position = Vector2(160, 104)
-texture = ExtResource("1_vn2es")
-hframes = 26
-frame = 19
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
