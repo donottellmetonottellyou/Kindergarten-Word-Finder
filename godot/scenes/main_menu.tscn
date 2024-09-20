@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=11 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
 [ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
+[ext_resource type="Texture2D" uid="uid://d0jrlky0pj0k4" path="res://resources/button_mode_good.tres" id="4_pwdmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
 atlas = ExtResource("3_oiehp")
@@ -14,6 +15,18 @@ region = Rect2(0, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eh30"]
 atlas = ExtResource("3_oiehp")
+region = Rect2(0, 16, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbt7i"]
+atlas = ExtResource("4_pwdmw")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxroa"]
+atlas = ExtResource("4_pwdmw")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w6ro"]
+atlas = ExtResource("4_pwdmw")
 region = Rect2(0, 16, 48, 16)
 
 [node name="MainMenu" type="Node2D"]
@@ -121,7 +134,12 @@ texture_normal = SubResource("AtlasTexture_wiy0g")
 texture_pressed = SubResource("AtlasTexture_xnomd")
 texture_hover = SubResource("AtlasTexture_2eh30")
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="Good" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 96.0
+offset_top = 104.0
+offset_right = 144.0
+offset_bottom = 120.0
+texture_normal = SubResource("AtlasTexture_gbt7i")
+texture_pressed = SubResource("AtlasTexture_lxroa")
+texture_hover = SubResource("AtlasTexture_2w6ro")
