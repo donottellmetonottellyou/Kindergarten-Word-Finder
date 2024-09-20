@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=16 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
 [ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
 [ext_resource type="Texture2D" uid="uid://d0jrlky0pj0k4" path="res://resources/button_mode_good.tres" id="4_pwdmw"]
+[ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/kevinmacleod/ittybitty8bit.mp3" id="5_8py4u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
 atlas = ExtResource("3_oiehp")
@@ -170,3 +171,7 @@ offset_bottom = 120.0
 texture_normal = SubResource("AtlasTexture_qko74")
 texture_pressed = SubResource("AtlasTexture_76vt3")
 texture_hover = SubResource("AtlasTexture_8m7ih")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8py4u")
+autoplay = true
