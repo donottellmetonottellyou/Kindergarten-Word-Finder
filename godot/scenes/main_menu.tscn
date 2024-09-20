@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=15 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
@@ -27,6 +27,21 @@ region = Rect2(0, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w6ro"]
 atlas = ExtResource("4_pwdmw")
+region = Rect2(0, 16, 48, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j13fh"]
+load_path = "res://.godot/imported/button_mode_best.png-1c8a6c8436adebe8575527f1a94502bb.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qko74"]
+atlas = SubResource("CompressedTexture2D_j13fh")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76vt3"]
+atlas = SubResource("CompressedTexture2D_j13fh")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m7ih"]
+atlas = SubResource("CompressedTexture2D_j13fh")
 region = Rect2(0, 16, 48, 16)
 
 [node name="MainMenu" type="Node2D"]
@@ -126,10 +141,10 @@ anchors_preset = 0
 
 [node name="Easy" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 80.0
-offset_right = 144.0
-offset_bottom = 96.0
+offset_left = 32.0
+offset_top = 104.0
+offset_right = 80.0
+offset_bottom = 120.0
 texture_normal = SubResource("AtlasTexture_wiy0g")
 texture_pressed = SubResource("AtlasTexture_xnomd")
 texture_hover = SubResource("AtlasTexture_2eh30")
@@ -143,3 +158,13 @@ offset_bottom = 120.0
 texture_normal = SubResource("AtlasTexture_gbt7i")
 texture_pressed = SubResource("AtlasTexture_lxroa")
 texture_hover = SubResource("AtlasTexture_2w6ro")
+
+[node name="Best" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 104.0
+offset_right = 208.0
+offset_bottom = 120.0
+texture_normal = SubResource("AtlasTexture_qko74")
+texture_pressed = SubResource("AtlasTexture_76vt3")
+texture_hover = SubResource("AtlasTexture_8m7ih")
