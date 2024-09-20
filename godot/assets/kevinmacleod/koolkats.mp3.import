@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/koolkats.mp3-550418e65476b4a8a9e8fcd692055ab9
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

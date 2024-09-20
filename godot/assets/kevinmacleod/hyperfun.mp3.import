@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/hyperfun.mp3-a357a94527b00f03db527fdcf7c22b7f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

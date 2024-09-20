@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/spazzmaticapolka.mp3-7a4cc1921bd3cd41c8ca8216
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
