@@ -1,10 +1,30 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2a05t2qtni6g"]
+[gd_scene load_steps=17 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
 [ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
 [ext_resource type="Texture2D" uid="uid://d0jrlky0pj0k4" path="res://resources/button_mode_good.tres" id="4_pwdmw"]
 [ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/kevinmacleod/ittybitty8bit.mp3" id="5_8py4u"]
+
+[sub_resource type="GDScript" id="GDScript_lj33r"]
+script/source = "extends Control
+
+@onready
+var easy_game = preload(\"res://scenes/easy_game.tscn\")
+@onready
+var good_game = preload(\"res://scenes/good_game.tscn\")
+@onready
+var best_game = preload(\"res://scenes/best_game.tscn\")
+
+func _on_easy_pressed():
+	get_tree().change_scene_to_packed(easy_game)
+
+func _on_good_pressed():
+	get_tree().change_scene_to_packed(good_game)
+
+func _on_best_pressed():
+	get_tree().change_scene_to_packed(best_game)
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
 atlas = ExtResource("3_oiehp")
@@ -141,6 +161,7 @@ frame = 17
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+script = SubResource("GDScript_lj33r")
 
 [node name="Easy" type="TextureButton" parent="Control"]
 layout_mode = 0
@@ -175,3 +196,7 @@ texture_hover = SubResource("AtlasTexture_8m7ih")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_8py4u")
 autoplay = true
+
+[connection signal="pressed" from="Control/Easy" to="Control" method="_on_easy_pressed"]
+[connection signal="pressed" from="Control/Good" to="Control" method="_on_good_pressed"]
+[connection signal="pressed" from="Control/Best" to="Control" method="_on_best_pressed"]
