@@ -1,3 +1,4 @@
+mod letter_manager;
 mod letters;
 
 use godot::prelude::*;

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsugeng4bw746"]
+[gd_scene load_steps=4 format=3 uid="uid://dsugeng4bw746"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_x2rxa"]
 [ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/kevinmacleod/hyperfun.mp3" id="2_eyubn"]
+[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_yc3q6"]
 
 [node name="GoodGame" type="Node2D"]
 
@@ -13,6 +14,102 @@ zoom = Vector2(4, 4)
 tile_set = ExtResource("1_x2rxa")
 format = 2
 layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 458752, 262144, 0, 393216, 262144, 0, 327680, 262144, 0, 262144, 262144, 0, 196608, 262144, 0, 131072, 262144, 0, 65536, 262144, 0, 0, 524288, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 327680, 0, 65550, 131072, 0, 131086, 131072, 0, 196622, 131072, 0, 262158, 131072, 0, 327694, 131072, 0, 393230, 131072, 0, 458766, 131072, 0, 524302, 131072, 0, 589838, 393216, 0, 589825, 196608, 0, 589826, 196608, 0, 589827, 196608, 0, 589828, 196608, 0, 589829, 196608, 0, 589830, 196608, 0, 589831, 196608, 0, 589832, 196608, 0, 589833, 196608, 0, 589834, 196608, 0, 589835, 196608, 0, 589836, 196608, 0, 589837, 196608, 0, 524289, 589824, 1, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524300, 65536, 0, 524301, 655360, 1, 458765, 262144, 0, 458764, 0, 1, 458763, 0, 1, 458762, 0, 1, 458761, 0, 1, 458760, 0, 1, 458759, 0, 1, 458758, 0, 1, 458757, 0, 1, 458756, 0, 1, 458755, 0, 1, 458754, 0, 1, 458753, 131072, 0, 393217, 131072, 0, 393218, 0, 1, 327682, 196608, 0, 327683, 196608, 0, 327684, 196608, 0, 327685, 196608, 0, 327686, 196608, 0, 327687, 196608, 0, 327688, 196608, 0, 327689, 196608, 0, 393225, 0, 1, 393224, 0, 1, 393223, 0, 1, 393222, 0, 1, 393221, 0, 1, 393220, 0, 1, 393219, 0, 1, 393226, 0, 1, 393227, 0, 1, 393228, 0, 1, 393229, 262144, 0, 327693, 524288, 1, 327692, 196608, 0, 327691, 196608, 0, 327690, 196608, 0, 327681, 458752, 1, 262145, 0, 0, 262146, 0, 0, 262147, 589824, 1, 262148, 65536, 0, 262149, 720896, 0, 262150, 65536, 0, 262151, 720896, 0, 262152, 65536, 0, 262153, 720896, 0, 262154, 65536, 0, 262155, 655360, 1, 262156, 0, 0, 262157, 0, 0, 196621, 0, 0, 196620, 0, 0, 196619, 262144, 0, 196618, 0, 1, 196617, 589824, 0, 196616, 0, 1, 196615, 589824, 0, 196614, 0, 1, 196613, 589824, 0, 196612, 0, 1, 196611, 131072, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 458752, 1, 131076, 196608, 0, 131077, 655360, 0, 131078, 196608, 0, 131079, 655360, 0, 131080, 196608, 0, 131081, 655360, 0, 131082, 196608, 0, 131083, 524288, 1, 131084, 0, 0, 131085, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0)
+
+[node name="ExtLetterManager" type="ExtLetterManager" parent="."]
+
+[node name="LetterBox" type="Node2D" parent="ExtLetterManager"]
+
+[node name="0" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(44, 108)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/0"]
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+
+[node name="1" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(64, 112)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/1"]
+letter = "B"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 1
+
+[node name="2" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(88, 116)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/2"]
+letter = "C"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 2
+
+[node name="3" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(108, 112)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/3"]
+letter = "D"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 3
+
+[node name="4" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(132, 108)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/4"]
+letter = "E"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 4
+
+[node name="5" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(152, 112)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/5"]
+letter = "F"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 5
+
+[node name="6" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(176, 116)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/6"]
+letter = "G"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 6
+
+[node name="7" type="Node2D" parent="ExtLetterManager/LetterBox"]
+position = Vector2(196, 112)
+
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/7"]
+letter = "H"
+jiggle = true
+texture = ExtResource("2_yc3q6")
+hframes = 26
+frame = 7
+
+[node name="WordBoxes" type="Node2D" parent="ExtLetterManager"]
+
+[node name="0" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+position = Vector2(72, 56)
+
+[node name="1" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+position = Vector2(104, 56)
+
+[node name="2" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+position = Vector2(136, 56)
+
+[node name="3" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+position = Vector2(168, 56)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_eyubn")

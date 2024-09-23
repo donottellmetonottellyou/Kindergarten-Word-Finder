@@ -42,7 +42,7 @@ enum Letter {
 
 #[derive(GodotClass)]
 #[class(base=Sprite2D)]
-struct ExtLetter {
+pub struct ExtLetter {
     #[var(get, set = set_letter)]
     #[export]
     letter: Letter,
