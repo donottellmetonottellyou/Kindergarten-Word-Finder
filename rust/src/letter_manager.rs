@@ -4,6 +4,8 @@ use anyhow::{anyhow, Context, Result};
 use godot::prelude::*;
 use thiserror::Error;
 
+use std::ops::{Deref, DerefMut};
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Error)]
 pub enum LetterManagerError {
     #[error("Not loaded due to not being in scene tree")]
@@ -128,5 +130,40 @@ impl INode2D for ExtLetterManager {
                 }
             }
         }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
+struct FixedVec<T>(Vec<T>);
+impl<T> FixedVec<T> {
+    pub fn new() -> Self {
+        Self::default()
+    }
+}
+impl<T> Default for FixedVec<T> {
+    fn default() -> Self {
+        Self(Vec::default())
+    }
+}
+impl<T> Deref for FixedVec<T> {
+    type Target = [T];
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl<T> DerefMut for FixedVec<T> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl<T> From<Vec<T>> for FixedVec<T> {
+    fn from(value: Vec<T>) -> Self {
+        Self(value)
+    }
+}
+impl<T> From<FixedVec<T>> for Vec<T> {
+    fn from(value: FixedVec<T>) -> Self {
+        value.0
     }
 }
