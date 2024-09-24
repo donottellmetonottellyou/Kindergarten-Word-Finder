@@ -3,6 +3,6 @@ mod letters;
 
 use godot::prelude::*;
 
-struct KindergardenWordFinderExtensionLibrary;
+struct KindergartenWordFinderExtensionLibrary;
 #[gdextension]
-unsafe impl ExtensionLibrary for KindergardenWordFinderExtensionLibrary {}
+unsafe impl ExtensionLibrary for KindergartenWordFinderExtensionLibrary {}

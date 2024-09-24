@@ -4,7 +4,7 @@ compatibility_minimum = 4.2
 reloadable = true
 
 [libraries]
-linux.debug.x86_64 =     "res://../rust/target/debug/libkindergarden_word_finder.so"
-linux.release.x86_64 =   "res://../rust/target/release/libkindergarden_word_finder.so"
-windows.debug.x86_64 =   "res://../rust/target/x86_64-pc-windows-gnu/debug/kindergarden_word_finder.dll"
-windows.release.x86_64 = "res://../rust/target/x86_64-pc-windows-gnu/release/kindergarden_word_finder.dll"
+linux.debug.x86_64 =     "res://../rust/target/debug/libkindergarten_word_finder.so"
+linux.release.x86_64 =   "res://../rust/target/release/libkindergarten_word_finder.so"
+windows.debug.x86_64 =   "res://../rust/target/x86_64-pc-windows-gnu/debug/kindergarten_word_finder.dll"
+windows.release.x86_64 = "res://../rust/target/x86_64-pc-windows-gnu/release/kindergarten_word_finder.dll"

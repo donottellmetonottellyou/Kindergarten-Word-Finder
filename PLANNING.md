@@ -1,6 +1,6 @@
 # Planning
 
-Kindergarden Word Finder will be a 4+ educational game. It will feature various
+Kindergarten Word Finder will be a 4+ educational game. It will feature various
 difficulties of word creation and discovery.
 
 ## Gameplay
