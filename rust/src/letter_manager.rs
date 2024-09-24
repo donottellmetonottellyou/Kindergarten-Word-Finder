@@ -136,6 +136,7 @@ impl INode2D for ExtLetterManager {
 #[derive(Clone, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
 struct FixedVec<T>(Vec<T>);
 impl<T> FixedVec<T> {
+    #[allow(dead_code)]
     pub fn new() -> Self {
         Self::default()
     }
