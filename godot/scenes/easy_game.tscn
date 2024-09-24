@@ -17,75 +17,75 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 
 [node name="ExtLetterManager" type="ExtLetterManager" parent="."]
 
-[node name="LetterBox" type="Node2D" parent="ExtLetterManager"]
+[node name="TraySlots" type="Node2D" parent="ExtLetterManager"]
 
-[node name="0" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="0" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(60, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/0"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/0"]
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 
-[node name="1" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="1" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(84, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/1"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
 letter = "B"
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 frame = 1
 
-[node name="2" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="2" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(108, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/2"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
 letter = "C"
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 frame = 2
 
-[node name="3" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="3" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(132, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/3"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
 letter = "D"
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 frame = 3
 
-[node name="4" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="4" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(156, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/4"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
 letter = "E"
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 frame = 4
 
-[node name="5" type="Node2D" parent="ExtLetterManager/LetterBox"]
+[node name="5" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(180, 112)
 
-[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/LetterBox/5"]
+[node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
 letter = "F"
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
 frame = 5
 
-[node name="WordBoxes" type="Node2D" parent="ExtLetterManager"]
+[node name="WordSlots" type="Node2D" parent="ExtLetterManager"]
 
-[node name="0" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+[node name="0" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(80, 56)
 
-[node name="1" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+[node name="1" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(120, 56)
 
-[node name="2" type="Node2D" parent="ExtLetterManager/WordBoxes"]
+[node name="2" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(160, 56)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
