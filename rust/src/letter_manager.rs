@@ -2,7 +2,10 @@ use crate::letters::ExtLetter;
 
 use godot::prelude::*;
 
-use std::ops::{Deref, DerefMut};
+use std::{
+    borrow::{Borrow, BorrowMut},
+    ops::{Deref, DerefMut},
+};
 
 #[derive(GodotClass)]
 #[class(base=Node2D, init)]
@@ -64,6 +67,26 @@ impl<T> FixedVec<T> {
     #[allow(dead_code)]
     pub fn new() -> Self {
         Self::default()
+    }
+}
+impl<T> AsRef<[T]> for FixedVec<T> {
+    fn as_ref(&self) -> &[T] {
+        self
+    }
+}
+impl<T> AsMut<[T]> for FixedVec<T> {
+    fn as_mut(&mut self) -> &mut [T] {
+        self
+    }
+}
+impl<T> Borrow<[T]> for FixedVec<T> {
+    fn borrow(&self) -> &[T] {
+        &self[..]
+    }
+}
+impl<T> BorrowMut<[T]> for FixedVec<T> {
+    fn borrow_mut(&mut self) -> &mut [T] {
+        &mut self[..]
     }
 }
 impl<T> Default for FixedVec<T> {
