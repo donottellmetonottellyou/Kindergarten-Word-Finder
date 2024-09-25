@@ -43,6 +43,19 @@ impl INode2D for ExtLetterManager {
             .collect::<Vec<_>>()
             .into();
 
+        self.tray_letters
+            .iter()
+            .filter_map(|letter| letter.clone())
+            .enumerate()
+            .for_each(|(i, mut letter)| {
+                let letter_variant = letter.clone().to_variant();
+                letter.bind_mut().connect_button_pressed(
+                    self.to_gd()
+                        .callable("on_letter_pressed")
+                        .bindv(Array::from_iter([letter_variant, (i as u8).to_variant()])),
+                );
+            });
+
         if word_slots_len == 0 || tray_slots_len == 0 {
             godot_error!("Either word or letters has a length of zero");
         }
@@ -57,6 +70,50 @@ impl INode2D for ExtLetterManager {
             "Initialized ExtLetterManager with {} letters for a {} length word",
             tray_slots_len,
             word_slots_len
+        );
+    }
+}
+#[godot_api]
+impl ExtLetterManager {
+    #[func]
+    fn on_letter_pressed(&mut self, mut letter: Gd<ExtLetter>, i: u8) {
+        if self.tray_letters[i as usize].is_some() {
+            let first_free_position =
+                match self.word_letters.iter().position(|letter| letter.is_none()) {
+                    Some(i) => i,
+                    None => return,
+                };
+
+            self.tray_slots[i as usize].remove_child(letter.clone().upcast());
+            self.word_slots[first_free_position].add_child(letter.clone().upcast());
+
+            letter.bind_mut().set_jiggle(false);
+
+            std::mem::swap(
+                &mut self.tray_letters[i as usize],
+                &mut self.word_letters[first_free_position],
+            );
+
+            return;
+        }
+
+        let word_position = match self.word_letters.iter().rposition(|word_letter| {
+            word_letter
+                .as_ref()
+                .map_or(false, |word_letter| *word_letter == letter)
+        }) {
+            Some(i) => i,
+            None => return,
+        };
+
+        self.word_slots[word_position].remove_child(letter.clone().upcast());
+        self.tray_slots[i as usize].add_child(letter.clone().upcast());
+
+        letter.bind_mut().set_jiggle(true);
+
+        std::mem::swap(
+            &mut self.tray_letters[i as usize],
+            &mut self.word_letters[word_position],
         );
     }
 }
