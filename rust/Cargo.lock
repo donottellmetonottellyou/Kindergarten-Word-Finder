@@ -120,6 +120,7 @@ dependencies = [
  "godot-cell",
  "godot-codegen",
  "godot-ffi",
+ "serde",
 ]
 
 [[package]]

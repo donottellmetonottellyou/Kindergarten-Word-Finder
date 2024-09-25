@@ -8,11 +8,11 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-godot = { version = "0.1.3", features = ["api-4-2"] }
+godot = { version = "0.1.3", features = ["api-4-2", "serde"] }
 rand = "0.8.5"
 
 # Config
-serde = "1.0"
+serde = { version = "1.0", features = ["derive"] }
 toml = "0.8.19"
 
 # Error handling
