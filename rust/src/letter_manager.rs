@@ -45,8 +45,8 @@ impl INode2D for ExtLetterManager {
 
         self.tray_letters
             .iter()
-            .filter_map(|letter| letter.clone())
             .enumerate()
+            .filter_map(|(i, letter)| letter.clone().map(|letter| (i, letter)))
             .for_each(|(i, mut letter)| {
                 let letter_variant = letter.clone().to_variant();
                 letter.bind_mut().connect_button_pressed(
