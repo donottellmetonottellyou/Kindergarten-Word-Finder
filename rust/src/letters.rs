@@ -10,7 +10,7 @@ use std::time::{Duration, Instant};
 #[derive(Debug, Default, Clone, Copy, GodotConvert, Var, Export)]
 #[repr(i32)]
 #[godot(via = GString)]
-enum Letter {
+pub enum Letter {
     #[default]
     A = 0,
     B,
@@ -92,7 +92,7 @@ impl ISprite2D for ExtLetter {
 #[godot_api]
 impl ExtLetter {
     #[func]
-    fn set_letter(&mut self, letter: Letter) {
+    pub fn set_letter(&mut self, letter: Letter) {
         self.base_mut()
             .set_texture(load("res://resources/letters.tres"));
         self.base_mut().set_hframes(26);
@@ -101,7 +101,7 @@ impl ExtLetter {
     }
 
     #[func]
-    fn set_jiggle(&mut self, jiggle: bool) {
+    pub fn set_jiggle(&mut self, jiggle: bool) {
         if !jiggle {
             self.base_mut().set_rotation(0.0);
         }
@@ -111,7 +111,7 @@ impl ExtLetter {
     }
 
     #[func]
-    fn connect_button_pressed(&mut self, callable: Callable) {
+    pub fn connect_button_pressed(&mut self, callable: Callable) {
         self.button.connect("pressed".into(), callable);
     }
 
