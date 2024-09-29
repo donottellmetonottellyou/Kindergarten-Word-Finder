@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5gek2pp5p4em"]
+
+[ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_oqoqm"]
+[ext_resource type="FontFile" uid="uid://bh38wxxb2j6fn" path="res://assets/grandoplexproductions/8bitOperatorPlus-Bold.ttf" id="2_uvo0o"]
+[ext_resource type="FontFile" uid="uid://csa1xqe81ul0d" path="res://assets/grandoplexproductions/8bitOperatorPlus-Regular.ttf" id="3_gu6ma"]
+[ext_resource type="AudioStream" uid="uid://ccfk0ief4iw8x" path="res://assets/unattributed/apple.mp3" id="4_fgwf3"]
+
+[sub_resource type="GDScript" id="GDScript_8af3k"]
+script/source = "extends ExtShowWord
+
+@onready
+var main_menu = preload(\"res://scenes/main_menu.tscn\")
+
+func _on_audio_finished():
+	get_tree().change_scene_to_packed(main_menu)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_007n7"]
+line_spacing = 0.0
+font = ExtResource("2_uvo0o")
+font_size = 24
+font_color = Color(0.67451, 0.196078, 0.196078, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_58qwh"]
+line_spacing = 0.0
+font = ExtResource("3_gu6ma")
+font_size = 12
+font_color = Color(0.67451, 0.196078, 0.196078, 1)
+
+[node name="ExtShowWord" type="ExtShowWord"]
+script = SubResource("GDScript_8af3k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, 80)
+zoom = Vector2(4, 4)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_oqoqm")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 458752, 262144, 0, 393216, 262144, 0, 327680, 262144, 0, 262144, 262144, 0, 196608, 262144, 0, 131072, 262144, 0, 65536, 262144, 0, 0, 524288, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 327680, 0, 65550, 131072, 0, 131086, 131072, 0, 196622, 131072, 0, 262158, 131072, 0, 327694, 131072, 0, 393230, 131072, 0, 458766, 131072, 0, 524302, 131072, 0, 589838, 393216, 0, 589825, 196608, 0, 589826, 196608, 0, 589827, 196608, 0, 589828, 196608, 0, 589829, 196608, 0, 589830, 196608, 0, 589831, 196608, 0, 589832, 196608, 0, 589833, 196608, 0, 589834, 196608, 0, 589835, 196608, 0, 589836, 196608, 0, 589837, 196608, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 458765, 0, 0, 458764, 0, 0, 458763, 0, 0, 458762, 0, 0, 458761, 0, 0, 458760, 0, 0, 458759, 0, 0, 458758, 0, 0, 458757, 0, 0, 458756, 0, 0, 458755, 0, 0, 458754, 0, 0, 458753, 0, 0, 393217, 0, 0, 393218, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 393225, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327681, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 196621, 0, 0, 196619, 0, 0, 196618, 0, 0, 196617, 0, 0, 196616, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 196620, 0, 0)
+
+[node name="Word" type="Label" parent="."]
+offset_right = 240.0
+offset_bottom = 48.0
+label_settings = SubResource("LabelSettings_007n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Picture" type="TextureRect" parent="."]
+offset_top = 48.0
+offset_right = 240.0
+offset_bottom = 112.0
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="."]
+offset_top = 112.0
+offset_right = 240.0
+offset_bottom = 159.0
+label_settings = SubResource("LabelSettings_58qwh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fgwf3")
+autoplay = true
+
+[connection signal="finished" from="Audio" to="." method="_on_audio_finished"]

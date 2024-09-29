@@ -12,17 +12,29 @@ pub static WORDS: LazyLock<Words> =
     LazyLock::new(|| toml::from_str(include_str!("../assets/words.toml")).unwrap());
 
 #[derive(GodotClass)]
-#[class(base=Node, no_init)]
+#[class(base=Node2D, init)]
+pub struct ExtShowWord {
+    base: Base<Node2D>,
+}
+#[godot_api]
+impl INode2D for ExtShowWord {
+    fn ready(&mut self) {
+        todo!()
+    }
+}
+
+#[derive(GodotClass)]
+#[class(base=Node, init)]
 pub struct ExtFoundWord {
     base: Base<Node>,
 
-    #[var(get)]
+    #[export]
     word: GString,
-    #[var(get)]
+    #[export]
     description: GString,
-    #[var(get)]
+    #[export]
     picture: Gd<Texture2D>,
-    #[var(get)]
+    #[export]
     audio: Gd<AudioStream>,
 }
 
