@@ -6,10 +6,7 @@ use godot::{
 };
 use serde::Deserialize;
 
-use std::{
-    collections::HashMap,
-    sync::{LazyLock, OnceLock},
-};
+use std::{collections::HashMap, sync::LazyLock};
 
 pub static WORDS: LazyLock<Words> =
     LazyLock::new(|| toml::from_str(include_str!("../assets/words.toml")).unwrap());
