@@ -1,7 +1,7 @@
 use crate::letters::Letter;
 
 use godot::{
-    engine::{AudioStream, Texture2D},
+    engine::{AudioStream, Label, Texture2D, TextureRect},
     prelude::*,
 };
 use serde::Deserialize;
@@ -19,7 +19,37 @@ pub struct ExtShowWord {
 #[godot_api]
 impl INode2D for ExtShowWord {
     fn ready(&mut self) {
-        todo!()
+        let found_word: Gd<ExtFoundWord> = self
+            .base()
+            .find_child("ExtFoundWord".into())
+            .expect("ExtFoundWord not found")
+            .cast();
+        let mut word: Gd<Label> = self
+            .base()
+            .find_child("Word".into())
+            .expect("Word Label not found")
+            .cast();
+        let mut picture: Gd<TextureRect> = self
+            .base()
+            .find_child("Picture".into())
+            .expect("Picture TextureRect not found")
+            .cast();
+        let mut description: Gd<Label> = self
+            .base()
+            .find_child("Description".into())
+            .expect("Description Label not found")
+            .cast();
+        let mut audio: Gd<AudioStreamPlayer> = self
+            .base()
+            .find_child("Audio".into())
+            .expect("Audio AudioStreamPlayer not found")
+            .cast();
+
+        word.set_text(found_word.bind().get_word());
+        picture.set_texture(found_word.bind().get_picture());
+        description.set_text(found_word.bind().get_description());
+        audio.set_stream(found_word.bind().get_audio());
+        audio.play();
     }
 }
 
