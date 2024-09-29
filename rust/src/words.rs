@@ -54,17 +54,17 @@ impl INode2D for ExtShowWord {
 }
 
 #[derive(GodotClass)]
-#[class(base=Node, init)]
+#[class(base=Node, no_init)]
 pub struct ExtFoundWord {
     base: Base<Node>,
 
-    #[export]
+    #[var(get)]
     word: GString,
-    #[export]
+    #[var(get)]
     description: GString,
-    #[export]
+    #[var(get)]
     picture: Gd<Texture2D>,
-    #[export]
+    #[var(get)]
     audio: Gd<AudioStream>,
 }
 
