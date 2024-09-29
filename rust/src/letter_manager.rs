@@ -7,6 +7,13 @@ use std::{
     ops::{Deref, DerefMut},
 };
 
+/// A manager to manage all your letters! This class is in charge of moving and
+/// notifying of changes in the letters in its scene.
+///
+/// On initialization, it expects two children, `TraySlots` and `WordSlots`.
+/// Each of these should have any (reasonable) number of `Node2D`'s, numbered
+/// from 0 on. `TraySlots` should additionally have one grandchild `ExtLetter`
+/// per child.
 #[derive(GodotClass)]
 #[class(base=Node2D, init)]
 pub struct ExtLetterManager {
@@ -75,6 +82,9 @@ impl INode2D for ExtLetterManager {
 }
 #[godot_api]
 impl ExtLetterManager {
+    /// This runs whenever any letter is clicked, moving it if it's possible.
+    /// It will move the letter to the tray if it's in the word, and to the
+    /// word if there is space in the word and it's in the tray.
     #[func]
     fn on_letter_pressed(&mut self, mut letter: Gd<ExtLetter>, i: u8) {
         if self.tray_letters[i as usize].is_some() {
@@ -118,6 +128,8 @@ impl ExtLetterManager {
     }
 }
 
+/// A fixed-size vector, which will only allow in-place modification after
+/// initialization.
 #[derive(Clone, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
 struct FixedVec<T>(Vec<T>);
 impl<T> FixedVec<T> {
