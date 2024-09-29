@@ -1,6 +1,6 @@
-mod letter_manager;
-mod letters;
-mod words;
+pub mod letter_manager;
+pub mod letters;
+pub mod words;
 
 use godot::prelude::*;
 
