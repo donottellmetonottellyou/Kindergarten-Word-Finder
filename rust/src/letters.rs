@@ -8,7 +8,7 @@ use rand::prelude::*;
 use std::time::{Duration, Instant};
 
 #[derive(Debug, Default, Clone, Copy, GodotConvert, Var, Export)]
-#[repr(i32)]
+#[repr(u8)]
 #[godot(via = GString)]
 pub enum Letter {
     #[default]
