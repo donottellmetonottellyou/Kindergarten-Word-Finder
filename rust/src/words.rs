@@ -8,9 +8,15 @@ use serde::Deserialize;
 
 use std::{collections::HashMap, sync::LazyLock};
 
+/// Singleton of all the words that are in words.toml as `Words`.
 pub static WORDS: LazyLock<Words> =
     LazyLock::new(|| toml::from_str(include_str!("../assets/words.toml")).unwrap());
 
+/// Used to load data from its expected child `ExtWordMeta` into its other
+/// expected children, Word (Label), Picture (TextureRect), Description
+/// (Label), and Audio (AudioStreamPlayer). Should be a root node with Word,
+/// Picture, Description and Audio as scene nodes, and `ExtWordMeta` added at
+/// runtime.
 #[derive(GodotClass)]
 #[class(base=Node2D, init)]
 pub struct ExtShowWord {
@@ -19,7 +25,7 @@ pub struct ExtShowWord {
 #[godot_api]
 impl INode2D for ExtShowWord {
     fn ready(&mut self) {
-        let found_word: Gd<ExtFoundWord> = self
+        let word_meta: Gd<ExtWordMeta> = self
             .base()
             .find_child("ExtFoundWord".into())
             .expect("ExtFoundWord not found")
@@ -45,17 +51,20 @@ impl INode2D for ExtShowWord {
             .expect("Audio AudioStreamPlayer not found")
             .cast();
 
-        word.set_text(found_word.bind().get_word());
-        picture.set_texture(found_word.bind().get_picture());
-        description.set_text(found_word.bind().get_description());
-        audio.set_stream(found_word.bind().get_audio());
+        word.set_text(word_meta.bind().get_word());
+        picture.set_texture(word_meta.bind().get_picture());
+        description.set_text(word_meta.bind().get_description());
+        audio.set_stream(word_meta.bind().get_audio());
         audio.play();
     }
 }
 
+/// Represents all metadata to be displayed/played by its intended parent,
+/// `ExtShowWord`. Created exclusively from the `WORDS` singleton as a match of
+/// a word using `Words.get()`.
 #[derive(GodotClass)]
 #[class(base=Node, no_init)]
-pub struct ExtFoundWord {
+pub struct ExtWordMeta {
     base: Base<Node>,
 
     #[var(get)]
@@ -68,12 +77,13 @@ pub struct ExtFoundWord {
     audio: Gd<AudioStream>,
 }
 
+/// A mapping of words to the metadata to be used by `ExtShowWord`.
 #[derive(Deserialize)]
 pub struct Words(HashMap<String, WordMeta>);
 impl Words {
-    /// Constructs a found word from a slice of letters, if it exists, to be
-    /// used in a scene.
-    pub fn get(&self, word: &[Letter]) -> Option<Gd<ExtFoundWord>> {
+    /// Constructs a word's metadata from a slice of letters, if it exists, to
+    /// be used in an `ExtShowWord` scene.
+    pub fn get(&self, word: &[Letter]) -> Option<Gd<ExtWordMeta>> {
         let word = Self::make_string_from_word(word);
         let WordMeta {
             picture,
@@ -88,7 +98,7 @@ impl Words {
             .ok()?;
         let audio = try_load(audio).inspect_err(|e| godot_error!("{e}")).ok()?;
 
-        Some(Gd::from_init_fn(|base| ExtFoundWord {
+        Some(Gd::from_init_fn(|base| ExtWordMeta {
             base,
 
             word,
@@ -108,8 +118,8 @@ impl Words {
     }
 }
 
-/// Note that we use StringName here because we can't use GString directly, and
-/// we want the performance benefit of already having them in a Godot format.
+/// Private deserializable metadata representation, to be turned into
+/// `ExtWordMeta` at runtime.
 #[derive(Deserialize)]
 struct WordMeta {
     description: StringName,
