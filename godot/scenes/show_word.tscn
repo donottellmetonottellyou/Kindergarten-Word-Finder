@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5gek2pp5p4em"]
+[gd_scene load_steps=5 format=3 uid="uid://b5gek2pp5p4em"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_oqoqm"]
-[ext_resource type="FontFile" uid="uid://bh38wxxb2j6fn" path="res://assets/grandoplexproductions/8bitOperatorPlus-Bold.ttf" id="2_uvo0o"]
-[ext_resource type="FontFile" uid="uid://csa1xqe81ul0d" path="res://assets/grandoplexproductions/8bitOperatorPlus-Regular.ttf" id="3_gu6ma"]
-[ext_resource type="AudioStream" uid="uid://ccfk0ief4iw8x" path="res://assets/unattributed/apple.mp3" id="4_fgwf3"]
+[ext_resource type="LabelSettings" uid="uid://4d6msnxqwnpd" path="res://resources/font_heading.tres" id="2_turmp"]
+[ext_resource type="LabelSettings" uid="uid://dxdlg3yy4wt8e" path="res://resources/font_normal.tres" id="3_xhgn4"]
 
 [sub_resource type="GDScript" id="GDScript_8af3k"]
 script/source = "extends ExtShowWord
@@ -14,19 +13,6 @@ var main_menu = preload(\"res://scenes/main_menu.tscn\")
 func _on_audio_finished():
 	get_tree().change_scene_to_packed(main_menu)
 "
-
-[sub_resource type="LabelSettings" id="LabelSettings_007n7"]
-line_spacing = 0.0
-font = ExtResource("2_uvo0o")
-font_size = 24
-font_color = Color(0.67451, 0.196078, 0.196078, 1)
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_58qwh"]
-line_spacing = 0.0
-font = ExtResource("3_gu6ma")
-font_size = 12
-font_color = Color(0.67451, 0.196078, 0.196078, 1)
 
 [node name="ExtShowWord" type="ExtShowWord"]
 script = SubResource("GDScript_8af3k")
@@ -43,7 +29,7 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 [node name="Word" type="Label" parent="."]
 offset_right = 240.0
 offset_bottom = 48.0
-label_settings = SubResource("LabelSettings_007n7")
+label_settings = ExtResource("2_turmp")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -59,13 +45,12 @@ stretch_mode = 5
 offset_top = 112.0
 offset_right = 240.0
 offset_bottom = 159.0
-label_settings = SubResource("LabelSettings_58qwh")
+label_settings = ExtResource("3_xhgn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_fgwf3")
 autoplay = true
 
 [connection signal="finished" from="Audio" to="." method="_on_audio_finished"]
