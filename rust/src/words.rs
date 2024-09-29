@@ -11,10 +11,18 @@ use std::{collections::HashMap, sync::LazyLock};
 pub static WORDS: LazyLock<Words> =
     LazyLock::new(|| toml::from_str(include_str!("../assets/words.toml")).unwrap());
 
-pub struct FoundWord {
+#[derive(GodotClass)]
+#[class(base=Node2D, no_init)]
+pub struct ExtFoundWord {
+    base: Base<Node2D>,
+
+    #[var(get)]
     word: GString,
+    #[var(get)]
     description: GString,
+    #[var(get)]
     picture: Gd<Texture2D>,
+    #[var(get)]
     audio: Gd<AudioStream>,
 }
 
@@ -23,7 +31,7 @@ pub struct Words(HashMap<String, WordMeta>);
 impl Words {
     /// Constructs a found word from a slice of letters, if it exists, to be
     /// used in a scene.
-    pub fn get(&self, word: &[Letter]) -> Option<FoundWord> {
+    pub fn get(&self, word: &[Letter]) -> Option<Gd<ExtFoundWord>> {
         let word = Self::make_string_from_word(word);
         let WordMeta {
             picture,
@@ -38,12 +46,14 @@ impl Words {
             .ok()?;
         let audio = try_load(audio).inspect_err(|e| godot_error!("{e}")).ok()?;
 
-        Some(FoundWord {
+        Some(Gd::from_init_fn(|base| ExtFoundWord {
+            base,
+
             word,
             description,
             picture,
             audio,
-        })
+        }))
     }
 
     /// Safety: assumes that Letter is a u8 index of ascii letters. If for some
