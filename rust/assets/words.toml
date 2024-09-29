@@ -1,0 +1,4 @@
+[apple]
+description = "apple"
+picture = "res://assets/unattributed/apple.png"
+audio = "res://assets/unattributed/apple.mp3"
