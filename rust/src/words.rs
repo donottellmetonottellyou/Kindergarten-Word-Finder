@@ -1,5 +1,3 @@
-use crate::letters::Letter;
-
 use godot::{
     engine::{AudioStream, Label, Texture2D, TextureRect},
     prelude::*,
@@ -79,12 +77,11 @@ pub struct ExtWordMeta {
 
 /// A mapping of words to the metadata to be used by `ExtShowWord`.
 #[derive(Deserialize)]
-pub struct Words(HashMap<String, WordMeta>);
+pub struct Words(HashMap<StringName, WordMeta>);
 impl Words {
-    /// Constructs a word's metadata from a slice of letters, if it exists, to
-    /// be used in an `ExtShowWord` scene.
-    pub fn get(&self, word: &[Letter]) -> Option<Gd<ExtWordMeta>> {
-        let word = Self::make_string_from_word(word);
+    /// Constructs a word's metadata from a StringName, if it exists, to be
+    /// used in an `ExtShowWord` scene.
+    pub fn get(&self, word: StringName) -> Option<Gd<ExtWordMeta>> {
         let WordMeta {
             picture,
             audio,
@@ -106,15 +103,6 @@ impl Words {
             picture,
             audio,
         }))
-    }
-
-    /// Safety: assumes that Letter is a u8 index of ascii letters. If for some
-    /// reason this would change, say, if we supported other languages, this
-    /// would be very unsafe and could contain null bytes or worse.
-    fn make_string_from_word(word: &[Letter]) -> String {
-        unsafe {
-            String::from_utf8_unchecked(word.iter().map(|letter| *letter as u8 + b'a').collect())
-        }
     }
 }
 
