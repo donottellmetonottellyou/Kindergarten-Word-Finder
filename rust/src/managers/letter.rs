@@ -1,4 +1,4 @@
-use crate::letters::ExtLetter;
+use crate::letters::{ExtLetter, Letter};
 
 use godot::prelude::*;
 
@@ -82,6 +82,9 @@ impl INode2D for ExtLetterManager {
 }
 #[godot_api]
 impl ExtLetterManager {
+    #[signal]
+    fn word_created(word: StringName);
+
     /// This runs whenever any letter is clicked, moving it if it's possible.
     /// It will move the letter to the tray if it's in the word, and to the
     /// word if there is space in the word and it's in the tray.
@@ -104,7 +107,7 @@ impl ExtLetterManager {
                 &mut self.word_letters[first_free_position],
             );
 
-            return;
+            return self.check_if_word_created();
         }
 
         let word_position = match self.word_letters.iter().rposition(|word_letter| {
@@ -124,6 +127,29 @@ impl ExtLetterManager {
         std::mem::swap(
             &mut self.tray_letters[i as usize],
             &mut self.word_letters[word_position],
+        );
+    }
+
+    #[inline]
+    fn check_if_word_created(&self) {
+        let word = self
+            .word_letters
+            .iter()
+            .filter_map(|letter| letter.clone())
+            .map(|letter| letter.bind().get_letter())
+            .fold(String::new(), |mut string, byte| {
+                string.push((byte + b'a') as char);
+                string
+            });
+
+        if word.len() < self.word_letters.len() {
+            return;
+        }
+
+        godot_print!("Potential word {word} created");
+        self.to_gd().emit_signal(
+            "word_created".into(),
+            &[StringName::from(word).to_variant()],
         );
     }
 }
