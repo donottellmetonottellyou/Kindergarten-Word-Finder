@@ -1,5 +1,5 @@
-pub mod letter_manager;
 pub mod letters;
+pub mod managers;
 pub mod words;
 
 use godot::prelude::*;
