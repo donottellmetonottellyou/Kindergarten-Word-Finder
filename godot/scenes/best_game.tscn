@@ -31,7 +31,7 @@ hframes = 26
 position = Vector2(56, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
-letter = "B"
+letter = 1
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -41,7 +41,7 @@ frame = 1
 position = Vector2(76, 108)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
-letter = "C"
+letter = 2
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -51,7 +51,7 @@ frame = 2
 position = Vector2(92, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
-letter = "D"
+letter = 3
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -61,7 +61,7 @@ frame = 3
 position = Vector2(112, 116)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
-letter = "E"
+letter = 4
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -71,7 +71,7 @@ frame = 4
 position = Vector2(128, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
-letter = "F"
+letter = 5
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -81,7 +81,7 @@ frame = 5
 position = Vector2(148, 108)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/6"]
-letter = "G"
+letter = 6
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -91,7 +91,7 @@ frame = 6
 position = Vector2(164, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/7"]
-letter = "H"
+letter = 7
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -101,7 +101,7 @@ frame = 7
 position = Vector2(184, 116)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/8"]
-letter = "I"
+letter = 8
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
@@ -111,7 +111,7 @@ frame = 8
 position = Vector2(200, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/9"]
-letter = "J"
+letter = 9
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26

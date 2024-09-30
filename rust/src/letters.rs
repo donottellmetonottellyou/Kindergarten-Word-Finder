@@ -13,7 +13,7 @@ use std::time::{Duration, Instant};
 /// byte (if you add `b'a'`).
 #[derive(Debug, Default, Clone, Copy, GodotConvert, Var, Export)]
 #[repr(u8)]
-#[godot(via = GString)]
+#[godot(via = u8)]
 pub enum Letter {
     #[default]
     A = 0,

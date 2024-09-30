@@ -31,7 +31,7 @@ hframes = 26
 position = Vector2(84, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
-letter = "B"
+letter = 1
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
@@ -41,7 +41,7 @@ frame = 1
 position = Vector2(108, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
-letter = "C"
+letter = 2
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
@@ -51,7 +51,7 @@ frame = 2
 position = Vector2(132, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
-letter = "D"
+letter = 3
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
@@ -61,7 +61,7 @@ frame = 3
 position = Vector2(156, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
-letter = "E"
+letter = 4
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26
@@ -71,7 +71,7 @@ frame = 4
 position = Vector2(180, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
-letter = "F"
+letter = 5
 jiggle = true
 texture = ExtResource("2_mi08r")
 hframes = 26

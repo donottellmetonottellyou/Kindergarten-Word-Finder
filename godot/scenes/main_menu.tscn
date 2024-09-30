@@ -79,7 +79,7 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 [node name="Title" type="Node2D" parent="."]
 
 [node name="ExtLetter" type="ExtLetter" parent="Title"]
-letter = "W"
+letter = 22
 jiggle = true
 position = Vector2(84, 24)
 texture = ExtResource("2_4c2gh")
@@ -87,7 +87,7 @@ hframes = 26
 frame = 22
 
 [node name="ExtLetter2" type="ExtLetter" parent="Title"]
-letter = "O"
+letter = 14
 jiggle = true
 position = Vector2(108, 24)
 texture = ExtResource("2_4c2gh")
@@ -95,7 +95,7 @@ hframes = 26
 frame = 14
 
 [node name="ExtLetter3" type="ExtLetter" parent="Title"]
-letter = "R"
+letter = 17
 jiggle = true
 position = Vector2(132, 24)
 texture = ExtResource("2_4c2gh")
@@ -103,7 +103,7 @@ hframes = 26
 frame = 17
 
 [node name="ExtLetter4" type="ExtLetter" parent="Title"]
-letter = "D"
+letter = 3
 jiggle = true
 position = Vector2(156, 24)
 texture = ExtResource("2_4c2gh")
@@ -111,7 +111,7 @@ hframes = 26
 frame = 3
 
 [node name="ExtLetter5" type="ExtLetter" parent="Title"]
-letter = "F"
+letter = 5
 jiggle = true
 position = Vector2(60, 48)
 texture = ExtResource("2_4c2gh")
@@ -119,7 +119,7 @@ hframes = 26
 frame = 5
 
 [node name="ExtLetter6" type="ExtLetter" parent="Title"]
-letter = "I"
+letter = 8
 jiggle = true
 position = Vector2(84, 48)
 texture = ExtResource("2_4c2gh")
@@ -127,7 +127,7 @@ hframes = 26
 frame = 8
 
 [node name="ExtLetter7" type="ExtLetter" parent="Title"]
-letter = "N"
+letter = 13
 jiggle = true
 position = Vector2(108, 48)
 texture = ExtResource("2_4c2gh")
@@ -135,7 +135,7 @@ hframes = 26
 frame = 13
 
 [node name="ExtLetter8" type="ExtLetter" parent="Title"]
-letter = "D"
+letter = 3
 jiggle = true
 position = Vector2(132, 48)
 texture = ExtResource("2_4c2gh")
@@ -143,7 +143,7 @@ hframes = 26
 frame = 3
 
 [node name="ExtLetter9" type="ExtLetter" parent="Title"]
-letter = "E"
+letter = 4
 jiggle = true
 position = Vector2(156, 48)
 texture = ExtResource("2_4c2gh")
@@ -151,7 +151,7 @@ hframes = 26
 frame = 4
 
 [node name="ExtLetter10" type="ExtLetter" parent="Title"]
-letter = "R"
+letter = 17
 jiggle = true
 position = Vector2(180, 48)
 texture = ExtResource("2_4c2gh")
