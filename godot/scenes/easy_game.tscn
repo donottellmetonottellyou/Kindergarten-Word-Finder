@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_mi08r"]
 [ext_resource type="AudioStream" uid="uid://cxvsjukq78fpb" path="res://assets/kevinmacleod/koolkats.mp3" id="2_uq28q"]
 
-[node name="EasyGame" type="Node2D"]
+[node name="EasyGame" type="ExtWordManager"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)

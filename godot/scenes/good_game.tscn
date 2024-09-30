@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/kevinmacleod/hyperfun.mp3" id="2_eyubn"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_yc3q6"]
 
-[node name="GoodGame" type="Node2D"]
+[node name="GoodGame" type="ExtWordManager"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)
