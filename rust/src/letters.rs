@@ -46,7 +46,8 @@ pub enum Letter {
 
 /// Letter sprite, which also has an optional ability to be selected for
 /// dynamic gameplay. Supports setting whether it jiggles and its letter
-/// in the Godot editor UI.
+/// in the Godot editor UI. This uses a Sprite2D because it allows for
+/// animation frames, which is easier than using an atlas texture.
 #[derive(GodotClass)]
 #[class(base=Sprite2D)]
 pub struct ExtLetter {
