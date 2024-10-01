@@ -31,31 +31,31 @@ hframes = 26
 position = Vector2(56, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
-letter = 1
+letter = 15
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
-frame = 1
+frame = 15
 
 [node name="2" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(76, 108)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
-letter = 2
+letter = 15
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
-frame = 2
+frame = 15
 
 [node name="3" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(92, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
-letter = 3
+letter = 11
 jiggle = true
 texture = ExtResource("2_6snys")
 hframes = 26
-frame = 3
+frame = 11
 
 [node name="4" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(112, 116)
