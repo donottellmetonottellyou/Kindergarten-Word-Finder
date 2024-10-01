@@ -1,4 +1,4 @@
-use crate::letters::{ExtLetter, Letter};
+use crate::letters::ExtLetter;
 
 use godot::prelude::*;
 
