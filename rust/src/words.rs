@@ -23,31 +23,11 @@ pub struct ExtShowWord {
 #[godot_api]
 impl INode2D for ExtShowWord {
     fn ready(&mut self) {
-        let word_meta: Gd<ExtWordMeta> = self
-            .base()
-            .find_child("ExtFoundWord".into())
-            .expect("ExtFoundWord not found")
-            .cast();
-        let mut word: Gd<Label> = self
-            .base()
-            .find_child("Word".into())
-            .expect("Word Label not found")
-            .cast();
-        let mut picture: Gd<TextureRect> = self
-            .base()
-            .find_child("Picture".into())
-            .expect("Picture TextureRect not found")
-            .cast();
-        let mut description: Gd<Label> = self
-            .base()
-            .find_child("Description".into())
-            .expect("Description Label not found")
-            .cast();
-        let mut audio: Gd<AudioStreamPlayer> = self
-            .base()
-            .find_child("Audio".into())
-            .expect("Audio AudioStreamPlayer not found")
-            .cast();
+        let word_meta: Gd<ExtWordMeta> = self.base().get_node_as("ExtWordMeta");
+        let mut word: Gd<Label> = self.base().get_node_as("Word");
+        let mut picture: Gd<TextureRect> = self.base().get_node_as("Picture");
+        let mut description: Gd<Label> = self.base().get_node_as("Description");
+        let mut audio: Gd<AudioStreamPlayer> = self.base().get_node_as("Audio");
 
         word.set_text(word_meta.bind().get_word());
         picture.set_texture(word_meta.bind().get_picture());
