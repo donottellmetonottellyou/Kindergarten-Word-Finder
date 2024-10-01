@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://do1cuq3abkfpn"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_54xjd"]
-[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_mi08r"]
+[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_mhc2a"]
 [ext_resource type="AudioStream" uid="uid://cxvsjukq78fpb" path="res://assets/licensed/kevinmacleod/koolkats.mp3" id="2_uq28q"]
 
 [node name="EasyGame" type="ExtWordManager"]
@@ -24,7 +24,7 @@ position = Vector2(60, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/0"]
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 
 [node name="1" type="Node2D" parent="ExtLetterManager/TraySlots"]
@@ -33,7 +33,7 @@ position = Vector2(84, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
 letter = 1
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 frame = 1
 
@@ -43,7 +43,7 @@ position = Vector2(108, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
 letter = 2
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 frame = 2
 
@@ -53,7 +53,7 @@ position = Vector2(132, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
 letter = 3
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 frame = 3
 
@@ -63,7 +63,7 @@ position = Vector2(156, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
 letter = 4
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 frame = 4
 
@@ -73,7 +73,7 @@ position = Vector2(180, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
 letter = 5
 jiggle = true
-texture = ExtResource("2_mi08r")
+texture = ExtResource("2_mhc2a")
 hframes = 26
 frame = 5
 

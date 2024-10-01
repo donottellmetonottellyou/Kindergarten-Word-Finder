@@ -102,7 +102,7 @@ impl ExtLetter {
     #[func]
     pub fn set_letter(&mut self, letter: Letter) {
         self.base_mut()
-            .set_texture(load("res://resources/letters.tres"));
+            .set_texture(load("res://assets/letters.png"));
         self.base_mut().set_hframes(26);
         self.base_mut().set_frame(letter as i32);
         self.letter = letter;

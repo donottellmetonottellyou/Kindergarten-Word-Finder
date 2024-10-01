@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://twmtj4r1jfdm"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_bkpoh"]
-[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_6snys"]
+[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_pvxgd"]
 [ext_resource type="AudioStream" uid="uid://4unip16sydkb" path="res://assets/licensed/kevinmacleod/spazzmaticapolka.mp3" id="2_vbvle"]
 
 [node name="BestGame" type="ExtWordManager"]
@@ -24,7 +24,7 @@ position = Vector2(40, 116)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/0"]
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 
 [node name="1" type="Node2D" parent="ExtLetterManager/TraySlots"]
@@ -33,7 +33,7 @@ position = Vector2(56, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
 letter = 15
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 15
 
@@ -43,7 +43,7 @@ position = Vector2(76, 108)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
 letter = 15
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 15
 
@@ -53,7 +53,7 @@ position = Vector2(92, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
 letter = 11
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 11
 
@@ -63,7 +63,7 @@ position = Vector2(112, 116)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
 letter = 4
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 4
 
@@ -73,7 +73,7 @@ position = Vector2(128, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
 letter = 5
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 5
 
@@ -83,7 +83,7 @@ position = Vector2(148, 108)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/6"]
 letter = 6
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 6
 
@@ -93,7 +93,7 @@ position = Vector2(164, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/7"]
 letter = 7
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 7
 
@@ -103,7 +103,7 @@ position = Vector2(184, 116)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/8"]
 letter = 8
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 8
 
@@ -113,7 +113,7 @@ position = Vector2(200, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/9"]
 letter = 9
 jiggle = true
-texture = ExtResource("2_6snys")
+texture = ExtResource("2_pvxgd")
 hframes = 26
 frame = 9
 

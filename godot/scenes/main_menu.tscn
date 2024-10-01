@@ -1,10 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://c2a05t2qtni6g"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_of4d3"]
-[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_4c2gh"]
-[ext_resource type="Texture2D" uid="uid://bm4pdg0p61mxm" path="res://resources/button_mode_easy.tres" id="3_oiehp"]
-[ext_resource type="Texture2D" uid="uid://d0jrlky0pj0k4" path="res://resources/button_mode_good.tres" id="4_pwdmw"]
-[ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="5_8py4u"]
+[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_lbhcw"]
+[ext_resource type="Texture2D" uid="uid://bj4aisxxh3jcn" path="res://assets/button_mode_easy.png" id="3_pg3h3"]
+[ext_resource type="Texture2D" uid="uid://cmqnj3qwox3f4" path="res://assets/button_mode_good.png" id="4_8hqvw"]
+[ext_resource type="Texture2D" uid="uid://122n2v5wpx3a" path="res://assets/button_mode_best.png" id="5_xu5rq"]
+[ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="5_ywsma"]
 
 [sub_resource type="GDScript" id="GDScript_lj33r"]
 script/source = "extends Control
@@ -27,42 +28,39 @@ func _on_best_pressed():
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiy0g"]
-atlas = ExtResource("3_oiehp")
+atlas = ExtResource("3_pg3h3")
 region = Rect2(0, 0, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnomd"]
-atlas = ExtResource("3_oiehp")
+atlas = ExtResource("3_pg3h3")
 region = Rect2(0, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eh30"]
-atlas = ExtResource("3_oiehp")
+atlas = ExtResource("3_pg3h3")
 region = Rect2(0, 16, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbt7i"]
-atlas = ExtResource("4_pwdmw")
+atlas = ExtResource("4_8hqvw")
 region = Rect2(0, 0, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxroa"]
-atlas = ExtResource("4_pwdmw")
+atlas = ExtResource("4_8hqvw")
 region = Rect2(0, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w6ro"]
-atlas = ExtResource("4_pwdmw")
+atlas = ExtResource("4_8hqvw")
 region = Rect2(0, 16, 48, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j13fh"]
-load_path = "res://.godot/imported/button_mode_best.png-1c8a6c8436adebe8575527f1a94502bb.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qko74"]
-atlas = SubResource("CompressedTexture2D_j13fh")
+atlas = ExtResource("5_xu5rq")
 region = Rect2(0, 0, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76vt3"]
-atlas = SubResource("CompressedTexture2D_j13fh")
+atlas = ExtResource("5_xu5rq")
 region = Rect2(0, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m7ih"]
-atlas = SubResource("CompressedTexture2D_j13fh")
+atlas = ExtResource("5_xu5rq")
 region = Rect2(0, 16, 48, 16)
 
 [node name="MainMenu" type="Node2D"]
@@ -82,7 +80,7 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 letter = 22
 jiggle = true
 position = Vector2(84, 24)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 22
 
@@ -90,7 +88,7 @@ frame = 22
 letter = 14
 jiggle = true
 position = Vector2(108, 24)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 14
 
@@ -98,7 +96,7 @@ frame = 14
 letter = 17
 jiggle = true
 position = Vector2(132, 24)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 17
 
@@ -106,7 +104,7 @@ frame = 17
 letter = 3
 jiggle = true
 position = Vector2(156, 24)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 3
 
@@ -114,7 +112,7 @@ frame = 3
 letter = 5
 jiggle = true
 position = Vector2(60, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 5
 
@@ -122,7 +120,7 @@ frame = 5
 letter = 8
 jiggle = true
 position = Vector2(84, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 8
 
@@ -130,7 +128,7 @@ frame = 8
 letter = 13
 jiggle = true
 position = Vector2(108, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 13
 
@@ -138,7 +136,7 @@ frame = 13
 letter = 3
 jiggle = true
 position = Vector2(132, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 3
 
@@ -146,7 +144,7 @@ frame = 3
 letter = 4
 jiggle = true
 position = Vector2(156, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 4
 
@@ -154,7 +152,7 @@ frame = 4
 letter = 17
 jiggle = true
 position = Vector2(180, 48)
-texture = ExtResource("2_4c2gh")
+texture = ExtResource("2_lbhcw")
 hframes = 26
 frame = 17
 
@@ -194,7 +192,7 @@ texture_pressed = SubResource("AtlasTexture_76vt3")
 texture_hover = SubResource("AtlasTexture_8m7ih")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_8py4u")
+stream = ExtResource("5_ywsma")
 autoplay = true
 
 [connection signal="pressed" from="Control/Easy" to="Control" method="_on_easy_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsugeng4bw746"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_x2rxa"]
+[ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_4gcqw"]
 [ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/licensed/kevinmacleod/hyperfun.mp3" id="2_eyubn"]
-[ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_yc3q6"]
 
 [node name="GoodGame" type="ExtWordManager"]
 
@@ -24,7 +24,7 @@ position = Vector2(44, 108)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/0"]
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 
 [node name="1" type="Node2D" parent="ExtLetterManager/TraySlots"]
@@ -33,7 +33,7 @@ position = Vector2(64, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
 letter = 1
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 1
 
@@ -43,7 +43,7 @@ position = Vector2(88, 116)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
 letter = 2
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 2
 
@@ -53,7 +53,7 @@ position = Vector2(108, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
 letter = 3
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 3
 
@@ -63,7 +63,7 @@ position = Vector2(132, 108)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/4"]
 letter = 4
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 4
 
@@ -73,7 +73,7 @@ position = Vector2(152, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/5"]
 letter = 5
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 5
 
@@ -83,7 +83,7 @@ position = Vector2(176, 116)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/6"]
 letter = 6
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 6
 
@@ -93,7 +93,7 @@ position = Vector2(196, 112)
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/7"]
 letter = 7
 jiggle = true
-texture = ExtResource("2_yc3q6")
+texture = ExtResource("2_4gcqw")
 hframes = 26
 frame = 7
 

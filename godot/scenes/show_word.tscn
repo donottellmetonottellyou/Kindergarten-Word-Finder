@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5gek2pp5p4em"]
+[gd_scene load_steps=9 format=3 uid="uid://b5gek2pp5p4em"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_oqoqm"]
-[ext_resource type="LabelSettings" uid="uid://4d6msnxqwnpd" path="res://resources/font_heading.tres" id="2_turmp"]
-[ext_resource type="LabelSettings" uid="uid://dxdlg3yy4wt8e" path="res://resources/font_normal.tres" id="3_xhgn4"]
-[ext_resource type="AudioStream" uid="uid://der17kv7hki7x" path="res://assets/unattributed/group_yay_cheer-101509.mp3" id="4_jcmgx"]
+[ext_resource type="FontFile" uid="uid://bh38wxxb2j6fn" path="res://assets/licensed/grandoplexproductions/8bitOperatorPlus-Bold.ttf" id="2_7sxt1"]
+[ext_resource type="FontFile" uid="uid://csa1xqe81ul0d" path="res://assets/licensed/grandoplexproductions/8bitOperatorPlus-Regular.ttf" id="3_fk0du"]
+[ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/licensed/kevinmacleod/hyperfun.mp3" id="4_jcmgx"]
 
 [sub_resource type="GDScript" id="GDScript_8af3k"]
 script/source = "extends ExtShowWord
@@ -19,6 +19,19 @@ func _on_audio_finished():
 		return
 	$Audio.play()
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_dr2oe"]
+line_spacing = 0.0
+font = ExtResource("2_7sxt1")
+font_size = 24
+font_color = Color(0.67451, 0.196078, 0.196078, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxlgb"]
+line_spacing = 0.0
+font = ExtResource("3_fk0du")
+font_size = 12
+font_color = Color(0.67451, 0.196078, 0.196078, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fkwi5"]
 playback_mode = 2
@@ -41,7 +54,7 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 [node name="Word" type="Label" parent="."]
 offset_right = 240.0
 offset_bottom = 48.0
-label_settings = ExtResource("2_turmp")
+label_settings = SubResource("LabelSettings_dr2oe")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -57,7 +70,7 @@ stretch_mode = 5
 offset_top = 112.0
 offset_right = 240.0
 offset_bottom = 159.0
-label_settings = ExtResource("3_xhgn4")
+label_settings = SubResource("LabelSettings_fxlgb")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
