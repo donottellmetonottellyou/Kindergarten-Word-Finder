@@ -1,5 +1,5 @@
 use godot::{
-    engine::{AudioStream, Label, Texture2D, TextureRect},
+    engine::{AudioStream, AudioStreamRandomizer, Label, Texture2D, TextureRect},
     prelude::*,
 };
 use serde::Deserialize;
@@ -27,13 +27,17 @@ impl INode2D for ExtShowWord {
         let mut word: Gd<Label> = self.base().get_node_as("Word");
         let mut picture: Gd<TextureRect> = self.base().get_node_as("Picture");
         let mut description: Gd<Label> = self.base().get_node_as("Description");
-        let mut audio: Gd<AudioStreamPlayer> = self.base().get_node_as("Audio");
+        let mut audio: Gd<AudioStreamRandomizer> = self
+            .base()
+            .get_node_as::<AudioStreamPlayer>("Audio")
+            .get_stream()
+            .unwrap()
+            .cast();
 
         word.set_text(word_meta.bind().get_word());
         picture.set_texture(word_meta.bind().get_picture());
         description.set_text(word_meta.bind().get_description());
-        audio.set_stream(word_meta.bind().get_audio());
-        audio.play();
+        audio.add_stream(-1, word_meta.bind().get_audio());
     }
 }
 
