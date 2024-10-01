@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://csa1xqe81ul0d"
-path="res://.godot/imported/8bitOperatorPlus-Regular.ttf-6eeb00e9dac69c96519a198c94978f57.fontdata"
+uid="uid://bh38wxxb2j6fn"
+path="res://.godot/imported/8bitOperatorPlus-Bold.ttf-232c6c40827958db113a643f605eb9d8.fontdata"
 
 [deps]
 
-source_file="res://assets/grandoplexproductions/8bitOperatorPlus-Regular.ttf"
-dest_files=["res://.godot/imported/8bitOperatorPlus-Regular.ttf-6eeb00e9dac69c96519a198c94978f57.fontdata"]
+source_file="res://assets/licensed/grandoplexproductions/8bitOperatorPlus-Bold.ttf"
+dest_files=["res://.godot/imported/8bitOperatorPlus-Bold.ttf-232c6c40827958db113a643f605eb9d8.fontdata"]
 
 [params]
 

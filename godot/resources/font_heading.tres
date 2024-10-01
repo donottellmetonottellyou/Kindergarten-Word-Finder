@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://4d6msnxqwnpd"]
 
-[ext_resource type="FontFile" uid="uid://bh38wxxb2j6fn" path="res://assets/grandoplexproductions/8bitOperatorPlus-Bold.ttf" id="1_nhhjm"]
+[ext_resource type="FontFile" uid="uid://bh38wxxb2j6fn" path="res://assets/licensed/grandoplexproductions/8bitOperatorPlus-Bold.ttf" id="1_nhhjm"]
 
 [resource]
 line_spacing = 0.0

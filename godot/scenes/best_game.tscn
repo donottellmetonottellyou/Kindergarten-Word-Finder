@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_bkpoh"]
 [ext_resource type="Texture2D" uid="uid://c7fu06sm5phy6" path="res://resources/letters.tres" id="2_6snys"]
-[ext_resource type="AudioStream" uid="uid://4unip16sydkb" path="res://assets/kevinmacleod/spazzmaticapolka.mp3" id="2_vbvle"]
+[ext_resource type="AudioStream" uid="uid://4unip16sydkb" path="res://assets/licensed/kevinmacleod/spazzmaticapolka.mp3" id="2_vbvle"]
 
 [node name="BestGame" type="ExtWordManager"]
 
