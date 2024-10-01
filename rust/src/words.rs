@@ -95,14 +95,17 @@ impl Words {
             .ok()?;
         let audio = try_load(audio).inspect_err(|e| godot_error!("{e}")).ok()?;
 
-        Some(Gd::from_init_fn(|base| ExtWordMeta {
+        let mut word_meta = Gd::from_init_fn(|base| ExtWordMeta {
             base,
 
             word,
             description,
             picture,
             audio,
-        }))
+        });
+        word_meta.set_name("ExtWordMeta".into());
+
+        Some(word_meta)
     }
 }
 
