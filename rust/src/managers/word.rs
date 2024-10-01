@@ -1,6 +1,6 @@
 use crate::{managers::letter::ExtLetterManager, words::WORDS};
 
-use godot::{obj::WithBaseField, prelude::*};
+use godot::prelude::*;
 
 /// This node's main task is checking if words created by the ExtLetterManager
 /// are words within the game dictionary, and changing the scene if so. It
