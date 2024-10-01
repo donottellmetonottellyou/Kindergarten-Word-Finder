@@ -1,18 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5gek2pp5p4em"]
+[gd_scene load_steps=7 format=3 uid="uid://b5gek2pp5p4em"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_oqoqm"]
 [ext_resource type="LabelSettings" uid="uid://4d6msnxqwnpd" path="res://resources/font_heading.tres" id="2_turmp"]
 [ext_resource type="LabelSettings" uid="uid://dxdlg3yy4wt8e" path="res://resources/font_normal.tres" id="3_xhgn4"]
+[ext_resource type="AudioStream" uid="uid://der17kv7hki7x" path="res://assets/unattributed/group_yay_cheer-101509.mp3" id="4_jcmgx"]
 
 [sub_resource type="GDScript" id="GDScript_8af3k"]
 script/source = "extends ExtShowWord
 
 @onready
 var main_menu = preload(\"res://scenes/main_menu.tscn\")
+var audio_plays = 0
 
 func _on_audio_finished():
-	get_tree().change_scene_to_packed(main_menu)
+	audio_plays += 1
+	if audio_plays > 1:
+		get_tree().change_scene_to_packed(main_menu)
+		return
+	$Audio.play()
 "
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fkwi5"]
+playback_mode = 2
+streams_count = 1
+stream_0/stream = ExtResource("4_jcmgx")
+stream_0/weight = 1.0
 
 [node name="ExtShowWord" type="ExtShowWord"]
 script = SubResource("GDScript_8af3k")
@@ -51,6 +63,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_fkwi5")
 autoplay = true
 
 [connection signal="finished" from="Audio" to="." method="_on_audio_finished"]
