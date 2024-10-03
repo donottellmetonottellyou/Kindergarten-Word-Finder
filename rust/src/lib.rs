@@ -2,12 +2,8 @@ pub mod letters;
 pub mod managers;
 pub mod words;
 
-use godot::{init::EditorRunBehavior, prelude::*};
+use godot::prelude::*;
 
 struct KindergartenWordFinderExtensionLibrary;
 #[gdextension]
-unsafe impl ExtensionLibrary for KindergartenWordFinderExtensionLibrary {
-    fn editor_run_behavior() -> EditorRunBehavior {
-        EditorRunBehavior::AllClasses
-    }
-}
+unsafe impl ExtensionLibrary for KindergartenWordFinderExtensionLibrary {}
