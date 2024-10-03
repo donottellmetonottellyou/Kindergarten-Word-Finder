@@ -66,18 +66,12 @@ impl Words {
     /// Constructs a word's metadata from a StringName, if it exists, to be
     /// used in an `ExtShowWord` scene.
     pub fn get(&self, word: StringName) -> Option<Gd<ExtWordMeta>> {
-        let WordMeta {
-            picture,
-            audio,
-            description,
-        } = self.0.get(&word)?;
+        let WordMeta { description } = self.0.get(&word)?;
 
         let word = word.into();
         let description = description.into();
-        let picture = try_load(picture)
-            .inspect_err(|e| godot_error!("{e}"))
-            .ok()?;
-        let audio = try_load(audio).inspect_err(|e| godot_error!("{e}")).ok()?;
+        let picture = load(format!("res://assets/licensed/pixabay/words/{}.webp", word));
+        let audio = load(format!("res://assets/licensed/luvvoice/words/{}.mp3", word));
 
         let mut word_meta = Gd::from_init_fn(|base| ExtWordMeta {
             base,
@@ -98,6 +92,4 @@ impl Words {
 #[derive(Deserialize)]
 struct WordMeta {
     description: StringName,
-    picture: StringName,
-    audio: StringName,
 }
