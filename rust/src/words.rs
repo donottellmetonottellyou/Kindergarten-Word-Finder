@@ -61,12 +61,12 @@ pub struct ExtWordMeta {
 
 /// A mapping of words to the metadata to be used by `ExtShowWord`.
 #[derive(Deserialize)]
-pub struct Words(HashMap<StringName, WordMeta>);
+pub struct Words(HashMap<StringName, StringName>);
 impl Words {
     /// Constructs a word's metadata from a StringName, if it exists, to be
     /// used in an `ExtShowWord` scene.
     pub fn get(&self, word: StringName) -> Option<Gd<ExtWordMeta>> {
-        let WordMeta { description } = self.0.get(&word)?;
+        let description = self.0.get(&word)?;
 
         let word = word.into();
         let description = description.into();
@@ -85,11 +85,4 @@ impl Words {
 
         Some(word_meta)
     }
-}
-
-/// Private deserializable metadata representation, to be turned into
-/// `ExtWordMeta` at runtime.
-#[derive(Deserialize)]
-struct WordMeta {
-    description: StringName,
 }
