@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://do1cuq3abkfpn"]
+[gd_scene load_steps=7 format=3 uid="uid://do1cuq3abkfpn"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_54xjd"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_mhc2a"]
-[ext_resource type="AudioStream" uid="uid://cxvsjukq78fpb" path="res://assets/licensed/kevinmacleod/koolkats.mp3" id="2_uq28q"]
+[ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_yjusg"]
+[ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="4_46ayp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t0spm"]
+playback_mode = 2
+streams_count = 2
+stream_0/stream = ExtResource("3_yjusg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_46ayp")
+stream_1/weight = 1.0
+
+[sub_resource type="GDScript" id="GDScript_hrx1j"]
+resource_name = "Music"
+script/source = "extends AudioStreamPlayer
+
+func _on_finished():
+	play()
+"
 
 [node name="EasyGame" type="ExtWordManager"]
 
@@ -88,6 +105,9 @@ position = Vector2(120, 56)
 [node name="2" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(160, 56)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_uq28q")
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_t0spm")
 autoplay = true
+script = SubResource("GDScript_hrx1j")
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

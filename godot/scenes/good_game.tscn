@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsugeng4bw746"]
+[gd_scene load_steps=7 format=3 uid="uid://dsugeng4bw746"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_x2rxa"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_4gcqw"]
 [ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/licensed/kevinmacleod/hyperfun.mp3" id="2_eyubn"]
+[ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_lq1a4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mknxq"]
+playback_mode = 2
+streams_count = 2
+stream_0/stream = ExtResource("3_lq1a4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_eyubn")
+stream_1/weight = 1.0
+
+[sub_resource type="GDScript" id="GDScript_3qglm"]
+resource_name = "Music"
+script/source = "extends AudioStreamPlayer
+
+func _on_finished():
+	play()
+"
 
 [node name="GoodGame" type="ExtWordManager"]
 
@@ -111,6 +128,9 @@ position = Vector2(136, 56)
 [node name="3" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(168, 56)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_eyubn")
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_mknxq")
 autoplay = true
+script = SubResource("GDScript_3qglm")
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

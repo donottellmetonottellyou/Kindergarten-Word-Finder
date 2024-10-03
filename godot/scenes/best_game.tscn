@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://twmtj4r1jfdm"]
+[gd_scene load_steps=7 format=3 uid="uid://twmtj4r1jfdm"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_bkpoh"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_pvxgd"]
 [ext_resource type="AudioStream" uid="uid://4unip16sydkb" path="res://assets/licensed/kevinmacleod/spazzmaticapolka.mp3" id="2_vbvle"]
+[ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_n68vb"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bq236"]
+playback_mode = 2
+streams_count = 2
+stream_0/stream = ExtResource("3_n68vb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_vbvle")
+stream_1/weight = 1.0
+
+[sub_resource type="GDScript" id="GDScript_rfimr"]
+resource_name = "Music"
+script/source = "extends AudioStreamPlayer
+
+func _on_finished():
+	play()
+"
 
 [node name="BestGame" type="ExtWordManager"]
 
@@ -134,6 +151,9 @@ position = Vector2(160, 56)
 [node name="4" type="Node2D" parent="ExtLetterManager/WordSlots"]
 position = Vector2(200, 56)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_vbvle")
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_bq236")
 autoplay = true
+script = SubResource("GDScript_rfimr")
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]
