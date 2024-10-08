@@ -50,12 +50,16 @@ pub struct ExtWordMeta {
     base: Base<Node>,
 
     #[var(get)]
+    #[export]
     word: GString,
     #[var(get)]
+    #[export]
     description: GString,
     #[var(get)]
+    #[export]
     picture: Gd<Texture2D>,
     #[var(get)]
+    #[export]
     audio: Gd<AudioStream>,
 }
 

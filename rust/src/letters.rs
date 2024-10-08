@@ -50,17 +50,19 @@ pub enum Letter {
 #[derive(GodotClass)]
 #[class(base=Sprite2D)]
 pub struct ExtLetter {
+    base: Base<Sprite2D>,
+
     #[var(get, set = set_letter)]
     #[export]
     letter: Letter,
     #[var(get, set = set_jiggle)]
     #[export]
     jiggle: bool,
+    #[var(get)]
+    #[export]
+    button: Gd<TextureButton>,
 
     next_jiggle_time: Instant,
-
-    button: Gd<TextureButton>,
-    base: Base<Sprite2D>,
 }
 #[godot_api]
 impl ISprite2D for ExtLetter {

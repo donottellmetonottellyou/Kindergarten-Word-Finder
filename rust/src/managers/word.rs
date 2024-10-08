@@ -10,6 +10,8 @@ use godot::prelude::*;
 pub struct ExtWordManager {
     base: Base<Node2D>,
 
+    #[var(get)]
+    #[export]
     show_word: Gd<PackedScene>,
 }
 #[godot_api]
