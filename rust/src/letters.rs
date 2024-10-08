@@ -58,8 +58,7 @@ pub struct ExtLetter {
     #[var(get, set = set_jiggle)]
     #[export]
     jiggle: bool,
-    #[var(get)]
-    #[export]
+
     button: Gd<TextureButton>,
 
     next_jiggle_time: Instant,
