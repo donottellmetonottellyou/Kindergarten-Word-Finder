@@ -40,39 +40,39 @@ layer_0/tile_data = PackedInt32Array(589824, 458752, 0, 524288, 262144, 0, 45875
 position = Vector2(44, 108)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/0"]
+letter = 15
 jiggle = true
 texture = ExtResource("2_4gcqw")
 hframes = 26
+frame = 15
 
 [node name="1" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(64, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/1"]
-letter = 1
+letter = 4
 jiggle = true
 texture = ExtResource("2_4gcqw")
 hframes = 26
-frame = 1
+frame = 4
 
 [node name="2" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(88, 116)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/2"]
-letter = 2
 jiggle = true
 texture = ExtResource("2_4gcqw")
 hframes = 26
-frame = 2
 
 [node name="3" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(108, 112)
 
 [node name="ExtLetter" type="ExtLetter" parent="ExtLetterManager/TraySlots/3"]
-letter = 3
+letter = 17
 jiggle = true
 texture = ExtResource("2_4gcqw")
 hframes = 26
-frame = 3
+frame = 17
 
 [node name="4" type="Node2D" parent="ExtLetterManager/TraySlots"]
 position = Vector2(132, 108)
