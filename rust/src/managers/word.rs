@@ -1,18 +1,17 @@
-use crate::{managers::letter::ExtLetterManager, words::WORDS};
+use crate::{
+    managers::letter::ExtLetterManager,
+    words::{ExtWordMeta, WORDS},
+};
 
 use godot::prelude::*;
 
 /// This node's main task is checking if words created by the ExtLetterManager
-/// are words within the game dictionary, and changing the scene if so. It
-/// expects at least one child, ExtLetterManager.
+/// are words within the game dictionary, sending a signal if true, and telling
+/// ExtLetterManager to clear the board otherwise (WIP).
 #[derive(GodotClass)]
 #[class(base=Node2D, init)]
 pub struct ExtWordManager {
     base: Base<Node2D>,
-
-    #[var(get)]
-    #[export]
-    show_word: Gd<PackedScene>,
 }
 #[godot_api]
 impl INode2D for ExtWordManager {
@@ -27,24 +26,22 @@ impl INode2D for ExtWordManager {
             "word_created".into(),
             self.to_gd().callable("on_word_created"),
         );
-
-        self.show_word = load("res://scenes/show_word.tscn");
     }
 }
 #[godot_api]
 impl ExtWordManager {
+    #[signal]
+    fn valid_word_created(word: Gd<ExtWordMeta>);
+
     #[func]
     fn on_word_created(&mut self, word: StringName) {
-        if let Some(word_meta) = WORDS.get(word) {
-            let mut show_word = self.show_word.instantiate().unwrap();
-            show_word.add_child(word_meta.upcast());
-
-            let children = self.base().get_children();
-            for mut child in children.iter_shared() {
-                self.base_mut().remove_child(child.clone());
-                child.queue_free();
+        match WORDS.get(word) {
+            Some(word_meta) => {
+                godot_print!("It was a valid word: {word_meta}");
+                self.to_gd()
+                    .emit_signal("valid_word_created".into(), &[word_meta.to_variant()]);
             }
-            self.base_mut().replace_by(show_word.clone());
-        }
+            None => todo!(),
+        };
     }
 }

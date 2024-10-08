@@ -5,21 +5,6 @@
 [ext_resource type="FontFile" uid="uid://csa1xqe81ul0d" path="res://assets/licensed/grandoplexproductions/8bitOperatorPlus-Regular.ttf" id="3_fk0du"]
 [ext_resource type="AudioStream" uid="uid://4gtchhgtmj52" path="res://assets/licensed/luvvoice/prompts/youdidit.mp3" id="4_4cxqf"]
 
-[sub_resource type="GDScript" id="GDScript_8af3k"]
-script/source = "extends ExtShowWord
-
-@onready
-var main_menu = preload(\"res://scenes/main_menu.tscn\")
-var audio_plays = 0
-
-func _on_audio_finished():
-	audio_plays += 1
-	if audio_plays > 1:
-		get_tree().change_scene_to_packed(main_menu)
-		return
-	$Audio.play()
-"
-
 [sub_resource type="LabelSettings" id="LabelSettings_dr2oe"]
 line_spacing = 0.0
 font = ExtResource("2_7sxt1")
@@ -39,8 +24,21 @@ streams_count = 1
 stream_0/stream = ExtResource("4_4cxqf")
 stream_0/weight = 1.0
 
+[sub_resource type="GDScript" id="GDScript_2imcp"]
+resource_name = "Audio"
+script/source = "extends AudioStreamPlayer
+
+func _on_finished():
+	var randomizer: AudioStreamRandomizer = stream
+	randomizer.remove_stream(0)
+	if randomizer.streams_count != 0:
+		play()
+	else:
+		get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+		get_parent().queue_free()
+"
+
 [node name="ExtShowWord" type="ExtShowWord"]
-script = SubResource("GDScript_8af3k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)
@@ -78,5 +76,6 @@ autowrap_mode = 3
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_fkwi5")
 autoplay = true
+script = SubResource("GDScript_2imcp")
 
-[connection signal="finished" from="Audio" to="." method="_on_audio_finished"]
+[connection signal="finished" from="Audio" to="Audio" method="_on_finished"]

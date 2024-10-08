@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://twmtj4r1jfdm"]
+[gd_scene load_steps=8 format=3 uid="uid://twmtj4r1jfdm"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_bkpoh"]
+[ext_resource type="Script" path="res://scripts/game_scene_manager.gd" id="1_dn23y"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_pvxgd"]
 [ext_resource type="AudioStream" uid="uid://4unip16sydkb" path="res://assets/licensed/kevinmacleod/spazzmaticapolka.mp3" id="2_vbvle"]
 [ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_n68vb"]
@@ -22,6 +23,7 @@ func _on_finished():
 "
 
 [node name="BestGame" type="ExtWordManager"]
+script = ExtResource("1_dn23y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)
@@ -156,4 +158,5 @@ stream = SubResource("AudioStreamRandomizer_bq236")
 autoplay = true
 script = SubResource("GDScript_rfimr")
 
+[connection signal="valid_word_created" from="." to="." method="_on_valid_word_created"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]

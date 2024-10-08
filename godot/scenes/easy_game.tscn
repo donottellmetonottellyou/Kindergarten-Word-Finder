@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://do1cuq3abkfpn"]
+[gd_scene load_steps=8 format=3 uid="uid://do1cuq3abkfpn"]
 
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_54xjd"]
+[ext_resource type="Script" path="res://scripts/game_scene_manager.gd" id="1_piv61"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_mhc2a"]
 [ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_yjusg"]
 [ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="4_46ayp"]
@@ -22,6 +23,7 @@ func _on_finished():
 "
 
 [node name="EasyGame" type="ExtWordManager"]
+script = ExtResource("1_piv61")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)
@@ -112,4 +114,5 @@ stream = SubResource("AudioStreamRandomizer_t0spm")
 autoplay = true
 script = SubResource("GDScript_hrx1j")
 
+[connection signal="valid_word_created" from="." to="." method="_on_valid_word_created"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]

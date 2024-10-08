@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://122n2v5wpx3a" path="res://assets/button_mode_best.png" id="5_xu5rq"]
 [ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="5_ywsma"]
 
-[sub_resource type="GDScript" id="GDScript_lj33r"]
+[sub_resource type="GDScript" id="GDScript_s70n3"]
+resource_name = "Control"
 script/source = "extends Control
 
 @onready
@@ -159,7 +160,7 @@ frame = 17
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-script = SubResource("GDScript_lj33r")
+script = SubResource("GDScript_s70n3")
 
 [node name="Easy" type="TextureButton" parent="Control"]
 layout_mode = 0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsugeng4bw746"]
+[gd_scene load_steps=8 format=3 uid="uid://dsugeng4bw746"]
 
+[ext_resource type="Script" path="res://scripts/game_scene_manager.gd" id="1_w1xgm"]
 [ext_resource type="TileSet" uid="uid://cimagqitk12nh" path="res://resources/background.tres" id="1_x2rxa"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_4gcqw"]
 [ext_resource type="AudioStream" uid="uid://o010vwuuyjr4" path="res://assets/licensed/kevinmacleod/hyperfun.mp3" id="2_eyubn"]
@@ -22,6 +23,7 @@ func _on_finished():
 "
 
 [node name="GoodGame" type="ExtWordManager"]
+script = ExtResource("1_w1xgm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 80)
@@ -133,4 +135,5 @@ stream = SubResource("AudioStreamRandomizer_mknxq")
 autoplay = true
 script = SubResource("GDScript_3qglm")
 
+[connection signal="valid_word_created" from="." to="." method="_on_valid_word_created"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
