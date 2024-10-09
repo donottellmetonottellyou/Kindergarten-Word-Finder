@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://scripts/game_scene_manager.gd" id="1_piv61"]
 [ext_resource type="Texture2D" uid="uid://crw1w10jql8r5" path="res://assets/letters.png" id="2_mhc2a"]
 [ext_resource type="AudioStream" uid="uid://1xlat742m61" path="res://assets/licensed/luvvoice/prompts/intro.mp3" id="3_yjusg"]
-[ext_resource type="AudioStream" uid="uid://2bgf73iweux7" path="res://assets/licensed/kevinmacleod/ittybitty8bit.mp3" id="4_46ayp"]
+[ext_resource type="AudioStream" uid="uid://cxvsjukq78fpb" path="res://assets/licensed/kevinmacleod/koolkats.mp3" id="5_88xb6"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t0spm"]
 playback_mode = 2
 streams_count = 2
 stream_0/stream = ExtResource("3_yjusg")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("4_46ayp")
+stream_1/stream = ExtResource("5_88xb6")
 stream_1/weight = 1.0
 
 [sub_resource type="GDScript" id="GDScript_hrx1j"]
