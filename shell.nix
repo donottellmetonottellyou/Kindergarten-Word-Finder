@@ -35,15 +35,22 @@ pkgs.mkShell {
       # Clean release for export sanity
       cargo clean --profile release
       cargo build && cargo build --target=${rustTargetWin}
+      # Build documentation in background
+      nohup cargo makedocs > /dev/null 2>&1 &
+      nohup cargo doc --no-deps --document-private-items > /dev/null 2>&1 &
     '')
     (pkgs.writeShellScriptBin "build-test" ''
       cd ${cwd}/rust
       # Clean release for export sanity
       cargo clean --profile release
       cargo test && cargo test --target=${rustTargetWin}
+      # Build documentation in background
+      nohup cargo makedocs > /dev/null 2>&1 &
+      nohup cargo doc --nodeps --document-private-items > /dev/null 2>&1 &
     '')
     (pkgs.writeShellScriptBin "build-release" ''
       cd ${cwd}/rust
+      cargo clean
       # Run cargo test instead of build for sanity check
       cargo test --release && cargo test --release --target=${rustTargetWin}
     '')
