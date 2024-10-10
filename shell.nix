@@ -28,7 +28,7 @@ pkgs.mkShell {
 
     (pkgs.writeShellScriptBin "open-editor" ''
       cd ${cwd}/godot
-      nohup godot4 -e --path . > /dev/null &
+      nohup godot4 -e --path . > /dev/null 2>&1 &
     '')
     (pkgs.writeShellScriptBin "build-dev" ''
       cd ${cwd}/rust
@@ -58,11 +58,18 @@ pkgs.mkShell {
   ]);
 
   shellHook = ''
-    rustup install --profile default stable > /dev/null
-    rustup override set ${rustToolchain} > /dev/null
-    rustup target add "${rustTargetWin}" > /dev/null
+    echo "Updating Rust stable..."
+    rustup install --profile default stable > /dev/null 2>&1 &&
+      rustup override set ${rustToolchain} > /dev/null 2>&1 &&
+      echo "Updating Windows target..." &&
+      rustup target add "${rustTargetWin}" > /dev/null 2>&1 &&
+      # Used for autogenerating docs
+      echo "Updating cargo-makedocs..." &&
+      cargo install cargo-makedocs > /dev/null 2>&1 ||
+        echo -e "\\033[31mFailed to update environment\\033[0m"
+
     rustup show
-    echo "godot $(godot4 --version)"
+    echo "Godot $(godot4 --version)"
     echo
     echo "Commands: open-editor, build-dev, build-test, build-release"
   '';
