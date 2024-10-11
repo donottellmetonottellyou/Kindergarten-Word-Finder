@@ -28,14 +28,18 @@ pub struct ExtLetterManager {
 impl INode2D for ExtLetterManager {
     fn ready(&mut self) {
         self.word_slots = (0_u8..)
-            .map_while(|i| self.base().try_get_node_as(format!("WordSlots/{i}")))
+            .map_while(|i| {
+                self.base().try_get_node_as(format!("WordSlots/{i}"))
+            })
             .collect::<Vec<_>>()
             .into();
         let word_slots_len = self.word_slots.len();
         self.word_letters = vec![None; word_slots_len].into();
 
         self.tray_slots = (0_u8..)
-            .map_while(|i| self.base().try_get_node_as(format!("TraySlots/{i}")))
+            .map_while(|i| {
+                self.base().try_get_node_as(format!("TraySlots/{i}"))
+            })
             .collect::<Vec<_>>()
             .into();
         let tray_slots_len = self.tray_slots.len();
@@ -45,7 +49,9 @@ impl INode2D for ExtLetterManager {
             .map(|node| node.try_get_node_as("ExtLetter"))
             .inspect(|letter| match letter {
                 Some(_) => (),
-                None => godot_error!("An available tray slot is missing a letter!"),
+                None => {
+                    godot_error!("An available tray slot is missing a letter!")
+                }
             })
             .collect::<Vec<_>>()
             .into();
@@ -57,9 +63,12 @@ impl INode2D for ExtLetterManager {
             .for_each(|(i, mut letter)| {
                 let letter_variant = letter.clone().to_variant();
                 letter.bind_mut().connect_button_pressed(
-                    self.to_gd()
-                        .callable("on_letter_pressed")
-                        .bindv(Array::from_iter([letter_variant, (i as u8).to_variant()])),
+                    self.to_gd().callable("on_letter_pressed").bindv(
+                        Array::from_iter([
+                            letter_variant,
+                            (i as u8).to_variant(),
+                        ]),
+                    ),
                 );
             });
 
@@ -91,14 +100,18 @@ impl ExtLetterManager {
     #[func]
     fn on_letter_pressed(&mut self, mut letter: Gd<ExtLetter>, i: u8) {
         if self.tray_letters[i as usize].is_some() {
-            let first_free_position =
-                match self.word_letters.iter().position(|letter| letter.is_none()) {
-                    Some(i) => i,
-                    None => return,
-                };
+            let first_free_position = match self
+                .word_letters
+                .iter()
+                .position(|letter| letter.is_none())
+            {
+                Some(i) => i,
+                None => return,
+            };
 
             self.tray_slots[i as usize].remove_child(letter.clone().upcast());
-            self.word_slots[first_free_position].add_child(letter.clone().upcast());
+            self.word_slots[first_free_position]
+                .add_child(letter.clone().upcast());
 
             letter.bind_mut().set_jiggle(false);
 
@@ -110,14 +123,15 @@ impl ExtLetterManager {
             return self.check_if_word_created();
         }
 
-        let word_position = match self.word_letters.iter().rposition(|word_letter| {
-            word_letter
-                .as_ref()
-                .map_or(false, |word_letter| *word_letter == letter)
-        }) {
-            Some(i) => i,
-            None => return,
-        };
+        let word_position =
+            match self.word_letters.iter().rposition(|word_letter| {
+                word_letter
+                    .as_ref()
+                    .map_or(false, |word_letter| *word_letter == letter)
+            }) {
+                Some(i) => i,
+                None => return,
+            };
 
         self.word_slots[word_position].remove_child(letter.clone().upcast());
         self.tray_slots[i as usize].add_child(letter.clone().upcast());

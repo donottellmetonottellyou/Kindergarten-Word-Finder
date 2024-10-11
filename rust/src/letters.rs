@@ -135,6 +135,7 @@ impl ExtLetter {
 
         self.base_mut()
             .set_rotation_degrees(thread_rng().gen_range(-15.0..=15.0));
-        self.next_jiggle_time += Duration::from_millis(thread_rng().gen_range(500..=2000));
+        self.next_jiggle_time +=
+            Duration::from_millis(thread_rng().gen_range(500..=2000));
     }
 }

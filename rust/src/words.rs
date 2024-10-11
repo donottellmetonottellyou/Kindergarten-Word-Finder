@@ -1,5 +1,7 @@
 use godot::{
-    engine::{AudioStream, AudioStreamRandomizer, Label, Texture2D, TextureRect},
+    engine::{
+        AudioStream, AudioStreamRandomizer, Label, Texture2D, TextureRect,
+    },
     prelude::*,
 };
 use serde::Deserialize;
@@ -7,8 +9,9 @@ use serde::Deserialize;
 use std::{collections::HashMap, sync::LazyLock};
 
 /// Singleton of all the words that are in words.toml as `Words`.
-pub static WORDS: LazyLock<Words> =
-    LazyLock::new(|| toml::from_str(include_str!("../assets/words.toml")).unwrap());
+pub static WORDS: LazyLock<Words> = LazyLock::new(|| {
+    toml::from_str(include_str!("../assets/words.toml")).unwrap()
+});
 
 /// Used to load data from its expected child `ExtWordMeta` into its other
 /// expected children, Word (Label), Picture (TextureRect), Description
@@ -74,8 +77,10 @@ impl Words {
 
         let word = word.into();
         let description = description.into();
-        let picture = load(format!("res://assets/licensed/pixabay/words/{}.webp", word));
-        let audio = load(format!("res://assets/licensed/luvvoice/words/{}.mp3", word));
+        let picture =
+            load(format!("res://assets/licensed/pixabay/words/{}.webp", word));
+        let audio =
+            load(format!("res://assets/licensed/luvvoice/words/{}.mp3", word));
 
         let mut word_meta = Gd::from_init_fn(|base| ExtWordMeta {
             base,
@@ -108,13 +113,17 @@ mod tests {
     #[test]
     fn words_all_have_valid_path() {
         for word in WORDS.as_inner().keys() {
-            let image = format!("{GODOT_ROOT}/assets/licensed/pixabay/words/{word}.webp");
+            let image = format!(
+                "{GODOT_ROOT}/assets/licensed/pixabay/words/{word}.webp"
+            );
             assert!(
                 std::fs::exists(&image).is_ok_and(|exists| exists),
                 "{image} does not exist"
             );
 
-            let audio = format!("{GODOT_ROOT}/assets/licensed/luvvoice/words/{word}.mp3");
+            let audio = format!(
+                "{GODOT_ROOT}/assets/licensed/luvvoice/words/{word}.mp3"
+            );
             assert!(
                 std::fs::exists(&audio).is_ok_and(|exists| exists),
                 "{audio} does not exist"

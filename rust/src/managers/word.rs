@@ -38,8 +38,10 @@ impl ExtWordManager {
         match WORDS.get(word) {
             Some(word_meta) => {
                 godot_print!("It was a valid word: {word_meta}");
-                self.to_gd()
-                    .emit_signal("valid_word_created".into(), &[word_meta.to_variant()]);
+                self.to_gd().emit_signal(
+                    "valid_word_created".into(),
+                    &[word_meta.to_variant()],
+                );
             }
             None => todo!(),
         };
