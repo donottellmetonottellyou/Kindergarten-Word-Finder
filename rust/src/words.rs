@@ -65,12 +65,12 @@ pub struct ExtWordMeta {
 
 /// A mapping of words to the metadata to be used by `ExtShowWord`.
 #[derive(Deserialize)]
-pub struct Words(HashMap<StringName, StringName>);
+pub struct Words(HashMap<String, String>);
 impl Words {
     /// Constructs a word's metadata from a StringName, if it exists, to be
     /// used in an `ExtShowWord` scene.
     pub fn get(&self, word: StringName) -> Option<Gd<ExtWordMeta>> {
-        let description = self.0.get(&word)?;
+        let description = self.0.get(&word.to_string())?;
 
         let word = word.into();
         let description = description.into();
@@ -88,5 +88,37 @@ impl Words {
         word_meta.set_name("ExtWordMeta".into());
 
         Some(word_meta)
+    }
+}
+
+#[cfg(test)]
+impl Words {
+    fn as_inner(&self) -> &HashMap<String, String> {
+        &self.0
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // WARNING: Change this if module moved
+    const GODOT_ROOT: &str = "../godot";
+
+    #[test]
+    fn words_all_have_valid_path() {
+        for word in WORDS.as_inner().keys() {
+            let image = format!("{GODOT_ROOT}/assets/licensed/pixabay/words/{word}.webp");
+            assert!(
+                std::fs::exists(&image).is_ok_and(|exists| exists),
+                "{image} does not exist"
+            );
+
+            let audio = format!("{GODOT_ROOT}/assets/licensed/luvvoice/words/{word}.mp3");
+            assert!(
+                std::fs::exists(&audio).is_ok_and(|exists| exists),
+                "{audio} does not exist"
+            );
+        }
     }
 }
