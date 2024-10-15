@@ -6,12 +6,49 @@ use godot::{
 };
 use serde::Deserialize;
 
-use std::{collections::HashMap, sync::LazyLock};
+use std::{collections::HashMap, ops::Deref, sync::LazyLock};
 
-/// Singleton of all the words that are in words.toml as `Words`.
-pub static WORDS: LazyLock<Words> = LazyLock::new(|| {
-    toml::from_str(include_str!("../assets/words.toml")).unwrap()
+/// All easy words (words of length 3)
+static EASY_WORDS: LazyLock<Words> = LazyLock::new(|| {
+    toml::from_str(include_str!("../assets/easy_words.toml")).unwrap()
 });
+
+/// All good words (words of length 4)
+static GOOD_WORDS: LazyLock<Words> = LazyLock::new(|| {
+    toml::from_str(include_str!("../assets/good_words.toml")).unwrap()
+});
+
+/// All best words (words of length 5)
+static BEST_WORDS: LazyLock<Words> = LazyLock::new(|| {
+    toml::from_str(include_str!("../assets/best_words.toml")).unwrap()
+});
+
+/// This enum is a smart pointer to all of the words in the catagory of its
+/// variant. If `Self::Easy`, it's a `Words` that contains all 3-letter words,
+/// if `Self::Good` all 4-letter words, and if `Self::Best` all 5-letter words.
+/// It does not implement DerefMut, as each catagory is read at compile time.
+#[derive(Clone, Copy, Debug, Default, GodotConvert, Var, Export)]
+#[repr(u8)]
+#[godot(via = u8)]
+pub enum WordCategory {
+    #[default]
+    None,
+    Easy,
+    Good,
+    Best,
+}
+impl Deref for WordCategory {
+    type Target = Words;
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            Self::None => unimplemented!("WordCategory::None has no Words"),
+            Self::Easy => &EASY_WORDS,
+            Self::Good => &GOOD_WORDS,
+            Self::Best => &BEST_WORDS,
+        }
+    }
+}
 
 /// Used to load data from its expected child `ExtWordMeta` into its other
 /// expected children, Word (Label), Picture (TextureRect), Description
@@ -111,23 +148,29 @@ mod tests {
     const GODOT_ROOT: &str = "../godot";
 
     #[test]
-    fn words_all_have_valid_path() {
-        for word in WORDS.as_inner().keys() {
-            let image = format!(
-                "{GODOT_ROOT}/assets/licensed/pixabay/words/{word}.webp"
-            );
-            assert!(
-                std::fs::exists(&image).is_ok_and(|exists| exists),
-                "{image} does not exist"
-            );
+    fn words_all_have_valid_paths() {
+        for category in
+            [WordCategory::Easy, WordCategory::Good, WordCategory::Best]
+        {
+            for word in category.as_inner().keys() {
+                let image = format!(
+                    "{GODOT_ROOT}/assets/licensed/pixabay/words/{word}.webp"
+                );
+                assert!(
+                    std::fs::exists(&image).is_ok_and(|exists| exists),
+                    "{image} does not exist"
+                );
 
-            let audio = format!(
-                "{GODOT_ROOT}/assets/licensed/luvvoice/words/{word}.mp3"
-            );
-            assert!(
-                std::fs::exists(&audio).is_ok_and(|exists| exists),
-                "{audio} does not exist"
-            );
+                let audio = format!(
+                    "{GODOT_ROOT}/assets/licensed/luvvoice/words/{word}.mp3"
+                );
+                assert!(
+                    std::fs::exists(&audio).is_ok_and(|exists| exists),
+                    "{audio} does not exist"
+                );
+
+                println!("{word} has valid paths")
+            }
         }
     }
 }

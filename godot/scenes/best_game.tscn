@@ -23,6 +23,7 @@ func _on_finished():
 "
 
 [node name="BestGame" type="ExtWordManager"]
+words = 4
 script = ExtResource("1_dn23y")
 
 [node name="Camera2D" type="Camera2D" parent="."]

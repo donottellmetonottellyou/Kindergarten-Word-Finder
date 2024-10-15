@@ -1,6 +1,6 @@
 use crate::{
     managers::letter::ExtLetterManager,
-    words::{ExtWordMeta, WORDS},
+    words::{ExtWordMeta, WordCategory},
 };
 
 use godot::prelude::*;
@@ -12,6 +12,9 @@ use godot::prelude::*;
 #[class(base=Node2D, init)]
 pub struct ExtWordManager {
     base: Base<Node2D>,
+
+    #[export]
+    words: WordCategory,
 }
 #[godot_api]
 impl INode2D for ExtWordManager {
@@ -35,7 +38,7 @@ impl ExtWordManager {
 
     #[func]
     fn on_word_created(&mut self, word: StringName) {
-        match WORDS.get(word) {
+        match self.words.get(word) {
             Some(word_meta) => {
                 godot_print!("It was a valid word: {word_meta}");
                 self.to_gd().emit_signal(

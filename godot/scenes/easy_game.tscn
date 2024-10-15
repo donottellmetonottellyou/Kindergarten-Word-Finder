@@ -23,6 +23,7 @@ func _on_finished():
 "
 
 [node name="EasyGame" type="ExtWordManager"]
+words = 2
 script = ExtResource("1_piv61")
 
 [node name="Camera2D" type="Camera2D" parent="."]
